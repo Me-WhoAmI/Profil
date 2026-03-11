@@ -912,7 +912,7 @@ footer p {
 .about-details > div:last-child,
 .about-details .detail-item:last-child {
     margin-top: 6rem !important;
-    padding-top: 2rem !important;
+    padding-top: 0rem !important;
 }
 
 /* Zusätzliche Sicherheit für den Container */
