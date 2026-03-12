@@ -80,10 +80,14 @@ document.addEventListener('DOMContentLoaded', function() {
         loadingTask.promise.then(function(pdf) {
             container.innerHTML = '';
             
-            // Für bessere Darstellung: Canvas stylen
-            const loadPage = function(pageNum) {
+            // Seiten nacheinander laden (bessere Performance)
+            let pageNum = 1;
+            
+            function renderPage() {
+                if (pageNum > pdf.numPages) return;
+                
                 pdf.getPage(pageNum).then(function(page) {
-                    const viewport = page.getViewport({ scale: 1.3 });
+                    const viewport = page.getViewport({ scale: 1.2 });
                     
                     const canvas = document.createElement('canvas');
                     const context = canvas.getContext('2d');
@@ -92,14 +96,12 @@ document.addEventListener('DOMContentLoaded', function() {
                     canvas.style.width = '100%';
                     canvas.style.height = 'auto';
                     canvas.style.marginBottom = '15px';
-                    canvas.style.border = '1px solid #ddd';
-                    canvas.style.boxShadow = '0 4px 8px rgba(0,0,0,0.1)';
-                    canvas.style.borderRadius = '4px';
+                    canvas.style.border = '1px solid #ccc';
+                    canvas.style.boxShadow = '0 2px 5px rgba(0,0,0,0.1)';
                     
                     const pageContainer = document.createElement('div');
                     pageContainer.className = 'pdf-page';
                     pageContainer.style.marginBottom = '20px';
-                    pageContainer.style.textAlign = 'center';
                     pageContainer.appendChild(canvas);
                     container.appendChild(pageContainer);
                     
@@ -107,16 +109,13 @@ document.addEventListener('DOMContentLoaded', function() {
                         canvasContext: context,
                         viewport: viewport
                     }).promise.then(function() {
-                        // Nächste Seite laden, wenn vorhanden
-                        if (pageNum < pdf.numPages) {
-                            loadPage(pageNum + 1);
-                        }
+                        pageNum++;
+                        renderPage(); // Nächste Seite rendern
                     });
                 });
-            };
+            }
             
-            // Erste Seite laden
-            loadPage(1);
+            renderPage(); // Start mit Seite 1
             
         }).catch(function(error) {
             container.innerHTML = `<p style="padding:2rem; text-align:center; color:red;">
@@ -147,85 +146,69 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 300);
     }
     
-    // VERBESSERTE Download-Funktion für Safari-Kompatibilität
-    if (downloadBtn) {
-        downloadBtn.addEventListener('click', function(e) {
-            e.preventDefault();
+    // VERBESSERTE Download-Funktion für Safari
+    downloadBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const pdfUrl = 'assets/pdf/Lebenslauf_AstridKraft.pdf';
+        const fileName = 'Lebenslauf_AstridKraft.pdf';
+        
+        // iOS-Hinweis anzeigen
+        if (isIOS || isSafari) {
+            iosHint.style.display = 'block';
             
-            const pdfUrl = 'assets/pdf/Lebenslauf_AstridKraft.pdf';
-            const fileName = 'Lebenslauf_AstridKraft.pdf';
+            // SPEZIALFALL SAFARI: Andere Download-Methode
+            fetch(pdfUrl)
+                .then(response => response.blob())
+                .then(blob => {
+                    // Blob-URL erstellen (funktioniert in Safari besser)
+                    const blobUrl = window.URL.createObjectURL(blob);
+                    const link = document.createElement('a');
+                    link.href = blobUrl;
+                    link.download = fileName;
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                    
+                    // Aufräumen
+                    setTimeout(() => {
+                        window.URL.revokeObjectURL(blobUrl);
+                    }, 100);
+                    
+                    // Erfolgshinweis
+                    iosHint.innerHTML = '<p>✅ Download gestartet!</p>';
+                })
+                .catch(() => {
+                    // Fallback: Im neuen Tab öffnen
+                    window.open(pdfUrl, '_blank');
+                    iosHint.innerHTML = '<p>📄 PDF im neuen Tab geöffnet.</p>';
+                });
             
-            // iOS-Hinweis anzeigen
-            if (isIOS || isSafari) {
-                iosHint.style.display = 'block';
-                
-                // Spezielle Behandlung für iOS/Safari
-                if (isIOS) {
-                    // iOS: Erstelle einen speziellen Download-Link mit Anleitung
-                    iosHint.innerHTML = '<p>📱 Tippe und halte auf den folgenden Link, dann wähle "Download verknüpfter Datei":</p>';
-                    
-                    // Zusätzlichen direkten Link für iOS anzeigen
-                    const directLink = document.createElement('a');
-                    directLink.href = pdfUrl;
-                    directLink.textContent = '📄 Lebenslauf_AstridKraft.pdf';
-                    directLink.style.display = 'block';
-                    directLink.style.padding = '10px';
-                    directLink.style.background = '#f0f0f0';
-                    directLink.style.margin = '10px 0';
-                    directLink.style.borderRadius = '4px';
-                    directLink.style.color = '#0a3d62';
-                    directLink.style.fontWeight = 'bold';
-                    directLink.target = '_blank';
-                    
-                    // Vorherigen Inhalt leeren und neuen Link einfügen
-                    iosHint.innerHTML = '';
-                    iosHint.appendChild(directLink);
-                } else {
-                    // Safari auf macOS: Verschiedene Methoden testen
-                    iosHint.innerHTML = '<p>💾 Versuche Download...</p>';
-                    
-                    // Methode 1: Blob-URL erstellen (funktioniert oft besser in Safari)
-                    fetch(pdfUrl)
-                        .then(response => response.blob())
-                        .then(blob => {
-                            const blobUrl = window.URL.createObjectURL(blob);
-                            const link = document.createElement('a');
-                            link.href = blobUrl;
-                            link.download = fileName;
-                            document.body.appendChild(link);
-                            link.click();
-                            document.body.removeChild(link);
-                            window.URL.revokeObjectURL(blobUrl);
-                            
-                            iosHint.innerHTML = '<p>✅ Download gestartet!</p>';
-                        })
-                        .catch(() => {
-                            // Methode 2: Fallback
-                            window.open(pdfUrl, '_blank');
-                            iosHint.innerHTML = '<p>📄 PDF im neuen Tab geöffnet.</p>';
-                        });
+            // Hinweis nach 5 Sekunden ausblenden
+            setTimeout(() => {
+                iosHint.style.display = 'none';
+                // Originaltext wiederherstellen
+                const currentLang = document.documentElement.getAttribute('lang') || 'de';
+                if (translations && translations[currentLang]) {
+                    iosHint.textContent = translations[currentLang]['resume_ios_hint'];
                 }
-                
-                // Hinweis nach 8 Sekunden ausblenden (länger wegen iOS)
-                setTimeout(() => {
-                    iosHint.style.display = 'none';
-                    // iOS-Hinweis zurücksetzen
-                    if (isIOS) {
-                        iosHint.innerHTML = '<p>Auf iOS-Geräten: Tippen und halten Sie auf dem PDF und wählen Sie "Zu Bücher hinzufügen" oder "In Dateien speichern".</p>';
-                    } else {
-                        iosHint.innerHTML = '<p>Auf iOS-Geräten: Tippen und halten Sie auf dem PDF und wählen Sie "Zu Bücher hinzufügen" oder "In Dateien speichern".</p>';
-                    }
-                }, 8000);
-                
-            } else {
-                // Für andere Browser: Standard-Download
-                const link = document.createElement('a');
-                link.href = pdfUrl;
-                link.download = fileName;
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-            }
-        });
-    }
+            }, 5000);
+            
+        } else {
+            // Für Chrome, Firefox, Edge: Standard-Download
+            const link = document.createElement('a');
+            link.href = pdfUrl;
+            link.download = fileName;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            
+            // Kurzen Hinweis anzeigen (optional)
+            iosHint.style.display = 'block';
+            iosHint.innerHTML = '<p>✅ Download gestartet!</p>';
+            setTimeout(() => {
+                iosHint.style.display = 'none';
+            }, 2000);
+        }
+    });
 });
