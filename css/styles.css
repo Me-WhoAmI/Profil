@@ -206,7 +206,7 @@ section {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #0a1a2f 0%, #1a3a5f 50%, #0a2a3f 100%);
+    background: #112c4b;
     position: relative;
     overflow: hidden;
 }
