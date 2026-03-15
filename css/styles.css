@@ -308,6 +308,19 @@ section {
     pointer-events: none;
 }
 
+.hero-brain2 {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 45%;
+    max-width: 500px;
+    height: auto;
+    opacity: 0.3;
+    z-index: 1;
+    pointer-events: none;
+}
+
 
 .profile-image {
     width: 300px;
