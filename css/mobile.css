@@ -32,8 +32,8 @@
     
     /* Hero Image - Bildbereich */
     .hero-image {
-        margin-top: 100px !important;
-        margin-bottom: 10px;
+        margin-top: 120px !important;
+        margin-bottom: -20px;
         order: 1;
     }
     
