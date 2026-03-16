@@ -227,23 +227,74 @@ nav ul li a:hover, nav ul li a.active {
 }
 
 
-/* Resume Button - kompakt mit dunkelblauer Schrift */
-.resume-btn {
-    background-color: transparent;  /* Transparent */
-    color: var(--primary-color) !important;  /* Dunkelblau wie DE */
-    border: 2px solid var(--primary-color);
+
+
+
+/* Für ALLE Geräte - Sprachumschalter und Resume Button nebeneinander */
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.language-selector select {
+    height: 36px;
     padding: 6px 15px;
     font-size: 0.85rem;
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 2px solid #00ffff;
     border-radius: var(--border-radius);
-    transition: all 0.3s ease;
+    font-weight: 500;
     line-height: 1.2;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'><polygon points='2,4 10,4 6,9' fill='%230a2463'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    padding-right: 30px;
+}
+
+.language-selector select:hover {
+    background-color: #00ffff;
+    color: var(--primary-color);
+    border-color: #00ffff;
+}
+
+.language-selector select option {
+    background: white;
+    color: var(--primary-color);
+}
+
+.resume-btn {
+    height: 36px;
+    padding: 6px 15px;
+    font-size: 0.85rem;
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 2px solid #00ffff;
+    border-radius: var(--border-radius);
+    font-weight: 500;
+    line-height: 1.2;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .resume-btn:hover {
-    background-color: var(--primary-color);
-    color: white !important;
-    border-color: var(--primary-color);
+    background-color: #00ffff;
+    color: var(--primary-color);
+    border-color: #00ffff;
 }
+
+
+
 
 
 
@@ -427,69 +478,6 @@ section {
     100% { box-shadow: 0 0 20px rgba(0, 255, 255, 0.2); }
 }
 
-
-/* Für ALLE Geräte - Sprachumschalter und Resume Button nebeneinander */
-.header-right {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.language-selector select {
-    height: 36px;
-    padding: 6px 15px;
-    font-size: 0.85rem;
-    background-color: transparent;
-    color: var(--primary-color);
-    border: 2px solid #00ffff;
-    border-radius: var(--border-radius);
-    font-weight: 500;
-    line-height: 1.2;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-sizing: border-box;
-    appearance: none;
-    -webkit-appearance: none;
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'><polygon points='2,4 10,4 6,9' fill='%230a2463'/></svg>");
-    background-repeat: no-repeat;
-    background-position: right 10px center;
-    padding-right: 30px;
-}
-
-.language-selector select:hover {
-    background-color: #00ffff;
-    color: var(--primary-color);
-    border-color: #00ffff;
-}
-
-.language-selector select option {
-    background: white;
-    color: var(--primary-color);
-}
-
-.resume-btn {
-    height: 36px;
-    padding: 6px 15px;
-    font-size: 0.85rem;
-    background-color: transparent;
-    color: var(--primary-color);
-    border: 2px solid #00ffff;
-    border-radius: var(--border-radius);
-    font-weight: 500;
-    line-height: 1.2;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.resume-btn:hover {
-    background-color: #00ffff;
-    color: var(--primary-color);
-    border-color: #00ffff;
-}
 
 
 
