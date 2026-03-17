@@ -2,7 +2,30 @@
 
 /* Smartphone (bis 768px) */
 @media (max-width: 768px) {
-    /* Hero Container */
+    /* === ALLGEMEINE LAYOUTS === */
+    section {
+        padding: 60px 0;
+        scroll-margin-top: 70px;  /* Für alle Sektionen */
+    }
+
+
+    /* Hero Section */
+    .hero {
+        padding-top: 20px !important;
+        min-height: 100vh;
+        scroll-margin-top: 0 !important;
+    }
+    
+    .hero-brain {
+        height: 300% !important;
+        min-width: 300% !important;
+        bottom: -10% !important;
+        left: -100% !important;
+        transform: rotate(-90deg) scale(1.5) !important;
+        opacity: 0.3;
+    }
+
+    
     .hero .container {
         display: flex;
         flex-direction: column;
@@ -15,7 +38,7 @@
     
     /* Hero Content - Textbereich */
     .hero-content {
-        margin-top: 50px !important;
+        margin-top: 100px !important;
         text-align: center;
         order: 2;
     }
@@ -58,21 +81,7 @@
         font-size: 1rem;
     }
     
-    /* Hero Section */
-    .hero {
-        padding-top: 20px !important;
-        min-height: 100vh;
-    }
-    
-    /* Hero Brain */
-    .hero-brain {
-        height: 300% !important;
-        min-width: 300% !important;
-        bottom: -10% !important;
-        left: -100% !important;
-        transform: rotate(-90deg) scale(1.5) !important;
-        opacity: 0.3;
-    }
+
     
     /* === HEADER - EXAKT WIE ORIGINAL === */
     header .container {
