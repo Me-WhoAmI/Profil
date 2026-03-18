@@ -1160,6 +1160,8 @@
 
 
 
+                                    
+
 <div class="form-group">
     <label for="contact-message">
         Nachricht 
@@ -1177,8 +1179,37 @@
         <span class="dot"></span> Quantenverschlüsselung aktiv
         <span class="faux-percentage">128-bit → 256-bit → 512-bit</span>
     </div>
+    <small class="word-count-info" data-i18n="form_max_words">Maximal 100 Wörter</small>
 </div>
-                                    
+
+<script>
+// Warten bis das DOM vollständig geladen ist
+document.addEventListener('DOMContentLoaded', function() {
+    const textarea = document.getElementById("contact-message");
+    
+    // Nur ausführen, wenn Textarea existiert
+    if (textarea) {
+        const messages = [
+            "🧠 Initialisiere Quantenkanal...",
+            "⚡ Synchronisiere Qubit-Verbindung...",
+            "🔒 Neuronale Verschlüsselung aktiv...",
+            "📡 Quantenverschlüsselung läuft...",
+            "🔄 Verschlüssele Nachricht in Echtzeit..."
+        ];
+
+        let index = 0;
+
+        // Placeholder alle 3 Sekunden wechseln
+        setInterval(() => {
+            // Nur wechseln, wenn Textarea NICHT fokussiert ist UND leer ist
+            if (document.activeElement !== textarea && textarea.value === "") {
+                textarea.placeholder = messages[index];
+                index = (index + 1) % messages.length;
+            }
+        }, 3000); // 3000ms = 3 Sekunden
+    }
+});
+</script>
                                     
 
 
