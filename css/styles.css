@@ -894,27 +894,34 @@ textarea:focus {
     border-color: #00c6ff;
 }
 
+
 .encryption-status {
     margin-top: 5px;
     font-size: 0.8rem;
-    color: #00ffcc;
+    color: #1a4a7a;  /* DUNKELBLAU für Quantenverschlüsselung aktiv */
     display: flex;
     align-items: center;
     gap: 10px;
+    font-weight: 500;
 }
 
 .encryption-status .dot {
     width: 8px;
     height: 8px;
-    background: #00ffcc;
+    background: #1a4a7a;  /* Gleiches DUNKELBLAU für den Punkt */
     border-radius: 50%;
     animation: pulse 1s infinite;
+    box-shadow: 0 0 5px #1a4a7a;
 }
 
 .faux-percentage {
     margin-left: auto;
-    color: #66ccff;
+    color: #5e9fd6;  /* Bleibt helleres Blau für 128-bit etc. */
+    opacity: 0.9;
+    font-weight: 600;
 }
+
+
 
 @keyframes pulse {
     0% { opacity: 0.3; }
