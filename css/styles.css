@@ -870,7 +870,7 @@ section {
 
 /* Textbox  */
 .futuristic-badge {
-    background: linear-gradient(90deg, #c0a87a, #a58e6b); /* Warme Erdtöne passend zu #f9f5f0 */
+    background: #1a4a7a;
     color: #2c3e50; /* Dunkles Blaugrau für Text */
     padding: 2px 8px;
     font-size: 0.7rem;
