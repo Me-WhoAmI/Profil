@@ -868,6 +868,7 @@ section {
 
 
 /* Nachrichten-Box */
+/* Nur diese eine Klasse für den Badge */
 .futuristic-badge {
     display: inline-block;
     background: linear-gradient(90deg, #00c6ff, #0072ff);
@@ -875,27 +876,10 @@ section {
     padding: 4px 12px;
     font-size: 0.75rem;
     border-radius: 20px;
-    /* Kein position: absolute; */
-}
-
-.textarea-badge {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: linear-gradient(90deg, #00c6ff, #0072ff);
-    color: white;
-    padding: 4px 12px;
-    font-size: 0.8rem;
-    border-radius: 20px;
     box-shadow: 0 0 15px rgba(0, 198, 255, 0.9);
-    pointer-events: none; /* Damit man durch den Badge hindurch in die Textbox klicken kann */
-    z-index: 5;
-    opacity: 0.9;
-}
-
-/* Wenn in die Textbox geklickt wird, kann der Badge ausgeblendet werden */
-textarea:focus + .textarea-badge {
-    opacity: 0.3;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    font-weight: bold;
+    white-space: nowrap;
 }
 
 
