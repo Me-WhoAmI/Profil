@@ -893,10 +893,13 @@ textarea {
     background: #1a4a7a;
     border: 1px solid #0a3d62;
     color: #e0f7ff;
-    padding: 28px 12px 12px 12px;  /* 👈 mehr Abstand oben */
+     height: 140px;                 /* 👈 wichtig */
+    padding: 20px 12px;      
     border-radius: 6px;
    font-size: 1.05rem;
 letter-spacing: 0.5px;
+   line-height: 1.6;
+   padding-top: 35px;
 }
 
 textarea:focus {
