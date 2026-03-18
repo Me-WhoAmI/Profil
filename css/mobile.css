@@ -290,6 +290,23 @@ nav ul li a {
         width: 8px;
         height: 8px;
     }
+
+/* Anpassungen Kontaktformular */
+
+    .encryption-status {
+        flex-wrap: wrap;
+    }
+    
+    .faux-percentage {
+        margin-left: 0;
+        width: 100%;
+    }
+}
+
+
+
+
+    
 }
 
 /* Kleine Smartphones (bis 480px) */
