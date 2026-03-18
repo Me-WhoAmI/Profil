@@ -909,12 +909,12 @@ textarea:focus {
     background:  #0077b5;  /* Gleiches LinkedIn-Blau für den Punkt */
     border-radius: 50%;
     animation: pulse 1s infinite;
-    box-shadow: 0 0 5px #0a66c2;  /* Passenden Schatten hinzugefügt */
+    box-shadow: 0 0 5px #0077b5;  /* Passenden Schatten hinzugefügt */
 }
 
 .faux-percentage {
     margin-left: auto;
-    color: #0a66c2;  /* Auch das Prozent in LinkedIn-Blau */
+    color: #5e9fd6; /* Auch das Prozent in LinkedIn-Blau */
     opacity: 0.9;
 }
 
