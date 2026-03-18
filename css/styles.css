@@ -1001,8 +1001,8 @@ textarea::placeholder {
     justify-content: center; /* Horizontal zentrieren */
     text-align: center;      /* Fallback für den Text */
     height: 60px;            /* Etwas größer */
-    font-size: 1.4rem;       /* Größere Schrift */
-    font-weight: 700;        /* Fetter (700 = bold) */
+    font-size: 0.8rem;      /* Größere Schrift */
+    font-weight: 500;       /* Fetter (700 = bold) */
     letter-spacing: 0.5px;   /* Minimal mehr Platz zwischen Buchstaben */
 }
 
