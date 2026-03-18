@@ -899,7 +899,7 @@ textarea {
    font-size: 1.05rem;
 letter-spacing: 0.5px;
    line-height: 2.2;
-   padding-top: 40px !important;
+   padding-top: 35px !important;
 }
 
 textarea:focus {
@@ -974,13 +974,16 @@ textarea::placeholder {
 }
 
 
-
-.captcha-question p {
-    color: #5e9fd6;  /* Gleiche Farbe wie 128-bit → 256-bit */
-    font-weight: 600;
-    opacity: 0.9;
+.captcha-container .captcha-question p[data-i18n="form_captcha"] {
+    color: #e0f7ff;  /* Schriftfarbe wie Nachricht im Textarea */
+    background: #5e9fd6;  /* Hintergrund wie 128-bit */
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-weight: 500;
     margin-bottom: 10px;
 }
+
+
 
 .captcha-hint {
     display: block;
