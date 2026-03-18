@@ -975,9 +975,23 @@ textarea::placeholder {
 
 
 
-#captcha-answer:focus {
-    outline: none;
+.captcha-question p {
+    color: #5e9fd6;  /* Gleiche Farbe wie 128-bit → 256-bit */
+    font-weight: 600;
+    opacity: 0.9;
+    margin-bottom: 10px;
 }
+
+.captcha-hint {
+    display: block;
+    margin-top: 8px;
+    font-style: italic;
+    color: #5e9fd6;  /* Auch gleiche Farbe */
+    font-size: 0.85rem;
+    opacity: 0.8;
+}
+
+
 
 
 
