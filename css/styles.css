@@ -1431,6 +1431,8 @@ label[for="contact-message"] {
     margin: 1rem 0;
 }
 
+
+
 .captcha-container .captcha-question p[data-i18n="form_captcha"] {
     color: #e0f7ff !important;
     background: #1a4a7a !important;
@@ -1462,6 +1464,18 @@ label[for="contact-message"] {
 }
 
 /* ===== MAP SECTION ===== */
+.map-container {
+    width: 100%;
+    height: 400px;
+    margin-top: 30px;
+}
+
+.map-container h3 {
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+
 .map-section {
     margin-top: 2rem;
     width: 100%;
