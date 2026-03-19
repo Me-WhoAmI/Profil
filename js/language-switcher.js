@@ -14,9 +14,7 @@ const translations = {
         "nav_contact": "Kontakt",
         "nav_resume": "Lebenslauf (PDF)",
         
-        // Sprachumschalter
-        "language_switch": "Sprache wählen",
-
+        
         
         // Hero-Sektion
         "hero_title": "IT-Spezialistin & KI-Expertin",
@@ -304,9 +302,6 @@ const translations = {
         "nav_contact": "Contact",
         "nav_resume": "Resume (PDF)",
         
-        // Sprachumschalter
-        "language_switch": "Choose language",
-
         
         // Hero-Sektion
         "hero_title": "IT Specialist & AI Expert",
