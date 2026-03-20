@@ -178,12 +178,12 @@ nav ul li a {
     
     /* Timeline */
     .timeline::after {
-        left: 20px;
+        left: 10px;
     }
     
     .timeline-item {
         width: 100%;
-        padding-left: 50px;
+        padding-left: 30px;
         padding-right: 10px;
     }
     
@@ -196,7 +196,7 @@ nav ul li a {
 .timeline-item::after,
 .timeline-item:nth-child(even)::after {
     transform: translateX(-50%);
-    left: 20px !important;
+    left: 10px !important;
   }
      
     
