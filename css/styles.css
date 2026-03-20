@@ -28,7 +28,7 @@
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 70px; /* damit passt das Scrollen auf dem IPad */
+    scroll-padding-top: 7vh; /* damit passt das Scrollen auf dem IPad */
 }
 
 body {
