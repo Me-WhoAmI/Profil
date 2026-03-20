@@ -254,6 +254,7 @@ main { padding-top: 0 !important; }
 
 section {
     padding: 60px 0;
+    min-height: 400px; /* oder mehr */
 } 
 
 
