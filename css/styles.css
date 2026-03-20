@@ -26,6 +26,15 @@
     box-sizing: border-box;
 }
 
+/* Fügen Sie dies am Anfang Ihres CSS ein */
+html {
+    scroll-padding-top: 70px; /* Platz für den fixen Header */
+    scroll-behavior: smooth;
+}
+
+/* Entfernen Sie alle section[id] Regeln */
+
+
 /*html {
     scroll-behavior: smooth;   
     scroll-margin-top: 70px;   
