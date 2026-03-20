@@ -613,6 +613,15 @@ section {
     text-align: right;
 }
 
+/* Berufliche Erfahrung: Trennung von "Anwendungsadministratorin" */
+.admin-split-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+
 /* ========================================
    SKILLS SECTION
    ======================================== */
