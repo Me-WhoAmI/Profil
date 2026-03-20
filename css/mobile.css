@@ -396,9 +396,9 @@
         word-break: break-all !important;
     }
 
-    section[id] {
+    /*section[id] {
         scroll-margin-top: 20px !important;
-    }
+    }*/
 }
 
 
