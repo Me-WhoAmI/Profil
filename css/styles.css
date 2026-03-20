@@ -27,8 +27,11 @@
 }
 
 html {
-    scroll-behavior: smooth;
+    scroll-behavior: smooth;   
+    scroll-margin-top: 7vh;
 }
+
+
 
 body {
     font-family: var(--font-secondary);
@@ -1556,10 +1559,6 @@ footer p {
 /* ========================================
    SCROLL VERHALTEN - RESPONSIVE
    ======================================== */
-
-section[id] {
-    scroll-margin-top: 60px;
-}
 
 
 
