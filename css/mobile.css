@@ -19,12 +19,24 @@
         padding: 0 20px !important;
         margin: 0 !important;
     }
-    
-    /* Slides anpassen */
-    .carousel-slide {
-        width: calc(50% - 2px) !important;
-        max-width: 350px !important;
+
+       .projects-carousel .carousel-container {
+        max-width: 900px !important;
+        margin: 0 auto !important;
+        justify-content: center !important;
     }
+    
+    .carousel-slide {
+        width: calc(50% - 20px) !important;
+        max-width: 380px !important;
+        flex: 0 0 auto !important;
+    }
+    
+    .project-card-carousel {
+        max-width: 380px !important;
+        margin: 0 auto !important;
+    }
+
     
     * {
         box-sizing: border-box !important;
