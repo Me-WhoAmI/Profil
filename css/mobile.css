@@ -45,7 +45,19 @@
     * {
         box-sizing: border-box !important;
     }
+
+        .technical-skills {
+        grid-template-columns: 1fr !important;
+    }
+    
+    .skill-item {
+        width: 100% !important;
+        max-width: 100% !important;
+    }   
 }
+
+
+
 
 
 
