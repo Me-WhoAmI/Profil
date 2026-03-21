@@ -366,20 +366,19 @@ section {
     z-index: 3;
 }
 
-
-/* NEUER .hero-brain BLOCK */
 .hero-brain {
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: -100px;
+    left: -40%;
     width: auto;
-    height: 200%;
-    transform: translate(-50%, -50%) scale(1);
+    height: 150%;
+    transform: rotate(-90deg);
     object-fit: cover;
-    opacity: 0.25;
+    opacity: 0.3;
     z-index: 1;
     pointer-events: none;
 }
+
 
 
 
