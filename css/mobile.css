@@ -26,15 +26,17 @@
         justify-content: center !important;
     }
     
-    .carousel-slide {
-        flex: 0 0 auto !important;
-        width: calc(50% - 2px);
-        min-width: 260px;
-        max-width: 100px !important;
-    }
+.carousel-slide {
+    flex: 0 0 300px !important;
+    width: 300px !important;
+    max-width: 300px !important;
+}
+    
+    
+ 
 
     .projects-carousel {
-        max-width: 500px !important;
+        max-width: 1200px !important;
         margin: 0 auto !important;
     }
 
