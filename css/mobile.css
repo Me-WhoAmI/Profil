@@ -1,3 +1,13 @@
+@media (min-width: 769px) and (max-width: 992px) {
+    .hero-brain {
+        left: -60% !important;
+        top: -50px !important;
+        height: 180% !important;
+        transform: rotate(-90deg) !important;
+    }
+}
+
+
 
 /* Smartphone & Tablet (bis 768px) */
 @media (max-width: 768px) {
