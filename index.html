@@ -722,34 +722,66 @@
                                         </div>
                                     </div>
 
+
                                     <script>
-                                    // Warten bis das DOM vollständig geladen ist
-                                    document.addEventListener('DOMContentLoaded', function() {
-                                        const textarea = document.getElementById("contact-message");
-                                        
-                                        // Nur ausführen, wenn Textarea existiert
-                                        if (textarea) {
-                                            const messages = [
-                                                "🧠 Initialisiere Quantenkanal...",
-                                                "⚡ Synchronisiere Qubit-Verbindung...",
-                                                "🔒 Neuronale Verschlüsselung aktiv...",
-                                                "📡 Quantenverschlüsselung läuft...",
-                                                "🔄 Verschlüssele Nachricht in Echtzeit..."
-                                            ];
+document.addEventListener('DOMContentLoaded', function() {
+    const textarea = document.getElementById("contact-message");
+    const languageSwitch = document.getElementById("language-switch");
+    
+    if (textarea) {
+        // Nachrichten in beiden Sprachen
+        const messages = {
+            de: [
+                "🧠 Initialisiere Quantenkanal...",
+                "⚡ Synchronisiere Qubit-Verbindung...",
+                "🔒 Neuronale Verschlüsselung aktiv...",
+                "📡 Quantenverschlüsselung läuft...",
+                "🔄 Verschlüssele Nachricht in Echtzeit..."
+            ],
+            en: [
+                "🧠 Initializing quantum channel...",
+                "⚡ Synchronizing qubit connection...",
+                "🔒 Neural encryption active...",
+                "📡 Quantum encryption running...",
+                "🔄 Encrypting message in real-time..."
+            ]
+        };
+        
+        let currentLang = document.documentElement.lang || 'de';
+        let index = 0;
 
-                                            let index = 0;
+        function updatePlaceholder() {
+            if (document.activeElement !== textarea && textarea.value === "") {
+                textarea.placeholder = messages[currentLang][index];
+                index = (index + 1) % messages[currentLang].length;
+            }
+        }
 
-                                            // Placeholder alle 3 Sekunden wechseln
-                                            setInterval(() => {
-                                                // Nur wechseln, wenn Textarea NICHT fokussiert ist UND leer ist
-                                                if (document.activeElement !== textarea && textarea.value === "") {
-                                                    textarea.placeholder = messages[index];
-                                                    index = (index + 1) % messages.length;
-                                                }
-                                            }, 3000); // 3000ms = 3 Sekunden
-                                        }
-                                    });
-                                    </script>
+        setInterval(updatePlaceholder, 3000);
+        
+        // Bei Sprachwechsel zurücksetzen
+        if (languageSwitch) {
+            languageSwitch.addEventListener('change', function(e) {
+                currentLang = e.target.value;
+                index = 0;
+                updatePlaceholder();
+            });
+        }
+    }
+});
+</script>
+
+
+
+
+
+
+
+
+
+                                    
+
+                               
 
                                     <div class="form-group captcha-container">
                                         <div class="captcha-question">
