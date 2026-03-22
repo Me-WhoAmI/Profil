@@ -723,8 +723,18 @@
 
 
 
+                                <script>
+// Übersetzung für dieses Feld DEAKTIVIEREN
+document.addEventListener('DOMContentLoaded', function() {
+    const textarea = document.getElementById("contact-message");
+    
+    // Entferne das data-i18n-placeholder Attribut, damit Übersetzung nicht greift
+    if (textarea) {
+        textarea.removeAttribute('data-i18n-placeholder');
+    }
+});
 
-<script>
+// Ihr Rotations-Script
 document.addEventListener('DOMContentLoaded', function() {
     const textarea = document.getElementById("contact-message");
     const languageSwitch = document.getElementById("language-switch");
@@ -751,12 +761,10 @@ document.addEventListener('DOMContentLoaded', function() {
         };
 
         function updatePlaceholder() {
-            // Entferne die Bedingung temporär zum Testen
             textarea.placeholder = messages[currentLang][index % messages[currentLang].length];
             index++;
         }
 
-        // Alle 3 Sekunden rotieren (auch wenn Feld fokussiert ist)
         setInterval(updatePlaceholder, 3000);
         
         if (languageSwitch) {
@@ -771,6 +779,9 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 </script>
+
+
+
 
 
                                     
