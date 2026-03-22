@@ -1382,6 +1382,7 @@ label[for="contact-message"] {
     font-size: 1.05rem;
     letter-spacing: 0.5px;
     line-height: 2.2;
+    resize: none !important;  /* Verhindert manuelle Vergrößerung */
 }
 
 .contact-form textarea:focus {
