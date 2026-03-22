@@ -841,73 +841,45 @@ section {
 /* ========================================
    PROJECTS SECTION
    ======================================== */
-       /* Basis-Styling für den Test - angepasst an Hero-Style */
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: linear-gradient(120deg, #f2f5fa 0%, #e3e9f2 100%);
-            position: relative;
-            overflow-x: hidden;
-        }
 
-        /* Erste Form - kühles Blau (angepasst für gesamte Seite) */
-        body::before {
-            content: "";
-            position: fixed;
-            width: 700px;
-            height: 700px;
-            background: radial-gradient(circle, rgba(180, 200, 230, 0.08) 0%, rgba(180, 200, 230, 0) 70%);
-            top: -250px;
-            right: -200px;
-            border-radius: 50%;
-            filter: blur(70px);
-            z-index: -1;
-            pointer-events: none;
-        }
+.projects {
+    background: linear-gradient(120deg, #f2f5fa 0%, #e3e9f2 100%);
+    position: relative;
+    overflow: hidden;
+    padding: 60px 0;
+}
 
-        /* Zweite Form - ganz dezenter Warm-Kontrast */
-        body::after {
-            content: "";
-            position: fixed;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(210, 200, 220, 0.05) 0%, rgba(210, 200, 220, 0) 70%);
-            bottom: -200px;
-            left: -150px;
-            border-radius: 50%;
-            filter: blur(80px);
-            z-index: -1;
-            pointer-events: none;
-        }
-        
-        .test-container {
-            width: 100%;
-            max-width: 1200px;
-            background: transparent;
-            padding: 30px 0;
-            border-radius: 0;
-            box-shadow: none;
-            position: relative;
-            z-index: 1;
-        }
-        
-        h2 {
-            text-align: center;
-            color: #0a3d62;
-            margin-bottom: 30px;
-            font-family: 'Montserrat', sans-serif;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            text-shadow: 0 2px 10px rgba(255,255,255,0.5);
-            position: relative;
-            z-index: 2;
-        }
-        
+.projects::before {
+    content: "";
+    position: absolute;
+    width: 700px;
+    height: 700px;
+    background: radial-gradient(circle, rgba(180, 200, 230, 0.08) 0%, rgba(180, 200, 230, 0) 70%);
+    top: -250px;
+    right: -200px;
+    border-radius: 50%;
+    filter: blur(70px);
+    z-index: 0;
+}
+
+.projects::after {
+    content: "";
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(210, 200, 220, 0.05) 0%, rgba(210, 200, 220, 0) 70%);
+    bottom: -200px;
+    left: -150px;
+    border-radius: 50%;
+    filter: blur(80px);
+    z-index: 0;
+}
+
+.projects .container {
+    position: relative;
+    z-index: 1;
+}
+
         /* ===== FILMSTREIFEN STYLES ===== */
         .projects-carousel {
             position: relative;
@@ -918,9 +890,10 @@ section {
             border-top: 4px solid #8b6e4b;
             border-bottom: 4px solid #8b6e4b;
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            padding: 40px 0 40px 0; /* Mehr Platz unten für Punkte */
+            padding: 40px 0 40px 0;
             backdrop-filter: blur(2px);
             z-index: 5;
+            max-width: 100% !important;
         }
         
         /* Obere Perforation */
@@ -941,7 +914,7 @@ section {
             z-index: 6;
         }
         
-        /* Untere Perforation (jetzt nur Perforation, keine Schrift) */
+        /* Untere Perforation */
         .projects-carousel::after {
             content: '';
             position: absolute;
@@ -974,7 +947,7 @@ section {
             position: absolute;
             top: -15px;
             left: 50%;
-            transform: translateX(-50%); /* Zentriert */
+            transform: translateX(-50%);
             color: rgba(192, 168, 123, 0.9);
             font-size: 12px;
             font-family: 'Courier New', monospace;
@@ -982,85 +955,62 @@ section {
             text-shadow: 0 0 5px rgba(0,0,0,0.3);
             z-index: 7;
         }
-        
-        /* Safety Film Schriftzug wurde entfernt - jetzt durch separate Elemente ersetzt */
-        .projects-carousel .carousel-container::after {
-            display: none;
+
+        /* SAFETY FILM Schriftzüge */
+        .safety-film-left {
+            position: absolute;
+            bottom: 25px;
+            left: 20px;
+            color: rgba(192, 168, 123, 0.9);
+            font-size: 12px;
+            font-family: 'Courier New', monospace;
+            letter-spacing: 1px;
+            text-shadow: 0 0 5px rgba(0,0,0,0.3);
+            z-index: 8;
+            background: rgba(0,0,0,0.1);
+            padding: 2px 5px;
+            border-radius: 3px;
+            opacity: 0.9;
         }
 
-/* Zusätzliche SAFETY FILM Schriftzüge - Jetzt GARANTIERT sichtbar */
-.safety-film-left {
-    position: absolute;
-    bottom: 25px;
-    left: 20px;
-    color: rgba(192, 168, 123, 0.9);  /* Gleiche Farbe wie KODAK */
-    font-size: 12px;                    /* Gleiche Größe */
-    font-family: 'Courier New', monospace;
-    letter-spacing: 1px;
-    font-weight: normal;                 /* Nicht fett */
-    text-shadow: 0 0 5px rgba(0,0,0,0.3); /* Gleicher Schatten */
-    z-index: 8;
-    background: rgba(0,0,0,0.1);          /* Gleicher Hintergrund */
-    padding: 2px 5px;
-    border-radius: 3px;
-    border: none;                         /* Kein Rand */
-    opacity: 0.9;                          /* Gleiche Transparenz */
-}
+        .safety-film-right {
+            position: absolute;
+            bottom: 25px;
+            right: 20px;
+            color: rgba(192, 168, 123, 0.9);
+            font-size: 12px;
+            font-family: 'Courier New', monospace;
+            letter-spacing: 1px;
+            text-shadow: 0 0 5px rgba(0,0,0,0.3);
+            z-index: 8;
+            background: rgba(0,0,0,0.1);
+            padding: 2px 5px;
+            border-radius: 3px;
+            opacity: 0.9;
+        }
 
-.safety-film-right {
-    position: absolute;
-    bottom: 25px;
-    right: 20px;
-    color: rgba(192, 168, 123, 0.9);
-    font-size: 12px;
-    font-family: 'Courier New', monospace;
-    letter-spacing: 1px;
-    font-weight: normal;
-    text-shadow: 0 0 5px rgba(0,0,0,0.3);
-    z-index: 8;
-    background: rgba(0,0,0,0.1);
-    padding: 2px 5px;
-    border-radius: 3px;
-    border: none;
-    opacity: 0.9;
-}
-
-.safety-film-center {
-    position: absolute;
-    bottom: 25px;
-    left: 50%;
-    transform: translateX(-50%);
-    color: rgba(192, 168, 123, 0.9);
-    font-size: 12px;
-    font-family: 'Courier New', monospace;
-    letter-spacing: 1px;
-    font-weight: normal;
-    text-shadow: 0 0 5px rgba(0,0,0,0.3);
-    z-index: 8;
-    background: rgba(0,0,0,0.1);
-    padding: 2px 5px;
-    border-radius: 3px;
-    border: none;
-    opacity: 0.9;
-}
-
-
-        
-
-
-
-
+        .safety-film-center {
+            position: absolute;
+            bottom: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgba(192, 168, 123, 0.9);
+            font-size: 12px;
+            font-family: 'Courier New', monospace;
+            letter-spacing: 1px;
+            text-shadow: 0 0 5px rgba(0,0,0,0.3);
+            z-index: 8;
+            background: rgba(0,0,0,0.1);
+            padding: 2px 5px;
+            border-radius: 3px;
+            opacity: 0.9;
+        }
 
         .projects-carousel {
             max-width: 100%;
             overflow: hidden;
             margin-left: auto;
             margin-right: auto;
-        }
-        
-        
-        .carousel-slide:last-child {
-            border-right: none;
         }
         
         .carousel-slide:hover {
@@ -1239,6 +1189,19 @@ section {
             box-shadow: 0 0 15px #3e92cc;
         }
 
+        /* Slide-Breiten */
+        .carousel-slide {
+            width: calc(33.333% - 2px);
+            flex: 0 0 auto;
+            transition: transform 0.3s ease;
+            position: relative;
+            border-right: 2px solid #ff8c42;
+            box-sizing: border-box;
+              min-width: 280px;
+    max-width: 380px;
+        }
+
+
 /* ========================================
    CONTACT SECTION
    ======================================== */
@@ -1247,8 +1210,8 @@ section {
     background: linear-gradient(120deg, #f9f5f0 0%, #f2eae3 100%);
     position: relative;
     overflow: hidden;
-    padding: 40px 0;
-   /* padding-bottom: 0 !important;*/
+    padding: 60px 0;
+    padding-bottom: 0 !important;
 }
 
 .contact::before {
@@ -1587,6 +1550,10 @@ footer p {
     color: var(--light-text-color);
     margin-bottom: 0;
 }
+
+
+
+
 
 
 
