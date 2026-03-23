@@ -1032,40 +1032,32 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-
-
-
-
-    <script>
+<script>
 (function() {
-    function updateScrollPadding() {
-        var header = document.querySelector('header');
-        var headerHeight = header ? header.offsetHeight : 70;
-        
-        // Für smooth scroll
-        document.documentElement.style.scrollPaddingTop = headerHeight + 'px';
-        
-        // Für alle Sections
-        var sections = document.querySelectorAll('section[id]');
-        sections.forEach(function(section) {
-            section.style.scrollMarginTop = headerHeight + 'px';
-        });
-    }
-    
-    // Bei Fenstergrößenänderung und Seitenladung
-    window.addEventListener('resize', updateScrollPadding);
-    window.addEventListener('load', updateScrollPadding);
-    
-    // Bei Klick auf Menüpunkte zusätzlich sichern
+    // Scroll-Funktion für Menü-Klicks
     document.querySelectorAll('nav a').forEach(function(link) {
-        link.addEventListener('click', function() {
-            setTimeout(updateScrollPadding, 10);
+        link.addEventListener('click', function(e) {
+            var targetId = this.getAttribute('href');
+            if (targetId && targetId !== '#' && targetId !== '#contact') {
+                e.preventDefault();
+                var target = document.querySelector(targetId);
+                if (target) {
+                    var header = document.querySelector('header');
+                    var headerHeight = header ? header.offsetHeight : 70;
+                    var targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            }
         });
     });
-    
-    updateScrollPadding();
 })();
 </script>
+
+
+
 
 
 
