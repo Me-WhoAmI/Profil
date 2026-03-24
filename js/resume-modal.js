@@ -318,7 +318,7 @@ document.addEventListener('DOMContentLoaded', function() {
         glitzerContainer.className = 'glitzer-container';
         placeholder.appendChild(glitzerContainer);
         
-        const glitzerShapes = ['✦', '✧', '❇️', '✶', '✴️', '✨', '⭐'];
+        const glitzerShapes = ['✨'];
         
         function createGlitzer() {
             const glitzer = document.createElement('div');
