@@ -1,4 +1,4 @@
-// JavaScript für das Lebenslauf-Modal mit PDF.js Integration und Zerfallseffekt
+// JavaScript für das Lebenslauf-Modal mit PDF.js Integration und Papierschnipsel-Zerfall
 
 document.addEventListener('DOMContentLoaded', function() {
     // Referenzen zu den Elementen
@@ -51,13 +51,13 @@ document.addEventListener('DOMContentLoaded', function() {
         pdfJsContainer.style.display = 'block';
         
         if (!pdfJsContainer.hasAttribute('data-loaded')) {
-            loadPdfWithBlurAndDissolve('assets/pdf/Lebenslauf_AstridKraft.pdf', pdfJsContainer);
+            loadPdfWithBlurAndPaperShred('assets/pdf/Lebenslauf_AstridKraft.pdf', pdfJsContainer);
             pdfJsContainer.setAttribute('data-loaded', 'true');
         }
     });
     
-    // PDF laden mit kurz unscharf + Pixel-Zerfall (aus tatsächlichem Bild)
-    function loadPdfWithBlurAndDissolve(url, container) {
+    // PDF laden mit kurz unscharf + Papierschnipsel-Zerfall
+    function loadPdfWithBlurAndPaperShred(url, container) {
         container.innerHTML = '<p style="padding:2rem; text-align:center;">PDF wird geladen...</p>';
         
         const loadingTask = pdfjsLib.getDocument(url);
@@ -72,18 +72,18 @@ document.addEventListener('DOMContentLoaded', function() {
             pagesWrapper.style.overflowY = 'auto';
             pagesWrapper.style.overflowX = 'hidden';
             pagesWrapper.style.borderRadius = '8px';
-            pagesWrapper.style.backgroundColor = '#f5f5f5';
+            pagesWrapper.style.backgroundColor = '#f0f0f0';
             
             container.appendChild(pagesWrapper);
             
-            const pageImages = []; // Speichert die Bilder der Seiten
+            const pageImages = [];
             const loadPromises = [];
             
-            // Alle PDF-Seiten laden und als Bilder speichern
+            // Alle PDF-Seiten laden
             for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
                 loadPromises.push(
                     pdf.getPage(pageNum).then(function(page) {
-                        const viewport = page.getViewport({ scale: 1.5 }); // Höhere Auflösung für Pixel
+                        const viewport = page.getViewport({ scale: 1.8 }); // Höhere Auflösung für gute Qualität
                         
                         const canvas = document.createElement('canvas');
                         const context = canvas.getContext('2d');
@@ -107,30 +107,27 @@ document.addEventListener('DOMContentLoaded', function() {
                             canvasContext: context,
                             viewport: viewport
                         }).promise.then(() => {
-                            // Nach dem Rendern: Bilddaten speichern
-                            const imageData = canvas.toDataURL('image/png');
                             pageImages.push({
                                 canvas: canvas,
-                                imageData: imageData,
                                 container: pageContainer,
                                 width: canvas.width,
-                                height: canvas.height
+                                height: canvas.height,
+                                rect: null
                             });
                         });
                     })
                 );
             }
             
-            // Nachdem alle Seiten geladen sind: kurz unscharf zeigen, dann Zerfall
             Promise.all(loadPromises).then(() => {
-                // 1. Kurz unscharf machen (0.5 Sekunde)
+                // Kurz unscharf machen
                 pageImages.forEach(img => {
                     img.canvas.style.filter = 'blur(12px)';
                 });
                 
-                // 2. Nach 0.5 Sekunden: Zerfall mit echten Pixeln starten
+                // Nach 0.5 Sekunden: Papierschnipsel-Zerfall
                 setTimeout(() => {
-                    startRealPixelDissolve(pagesWrapper, pageImages, container);
+                    startPaperShredEffect(pagesWrapper, pageImages, container);
                 }, 500);
             });
             
@@ -142,12 +139,10 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Pixel-Zerfall mit echten Bildpixeln aus dem PDF
-    function startRealPixelDissolve(wrapper, pageImages, container) {
-        // Position des Wrappers ermitteln
+    // Papierschnipsel-Zerfall-Effekt
+    function startPaperShredEffect(wrapper, pageImages, container) {
         const wrapperRect = wrapper.getBoundingClientRect();
         
-        // Für jede Seite
         pageImages.forEach((page, pageIndex) => {
             const canvas = page.canvas;
             const canvasRect = canvas.getBoundingClientRect();
@@ -158,113 +153,109 @@ document.addEventListener('DOMContentLoaded', function() {
             canvas.style.opacity = '0';
             canvas.style.transition = 'opacity 0.2s';
             
-            // Pixel-Container für diese Seite
-            const pixelContainer = document.createElement('div');
-            pixelContainer.style.position = 'absolute';
-            pixelContainer.style.top = relativeTop + 'px';
-            pixelContainer.style.left = relativeLeft + 'px';
-            pixelContainer.style.width = canvasRect.width + 'px';
-            pixelContainer.style.height = canvasRect.height + 'px';
-            pixelContainer.style.overflow = 'hidden';
-            pixelContainer.style.pointerEvents = 'none';
-            pixelContainer.style.zIndex = '10';
-            wrapper.appendChild(pixelContainer);
+            // Bilddaten vom Canvas holen
+            const imageData = canvas.toDataURL('image/png');
             
-            // Pixel-Größe: 12x12 Pixel
-            const pixelSize = 14;
-            const cols = Math.ceil(canvasRect.width / pixelSize);
-            const rows = Math.ceil(canvasRect.height / pixelSize);
+            // Schnipsel-Container
+            const shredContainer = document.createElement('div');
+            shredContainer.style.position = 'absolute';
+            shredContainer.style.top = relativeTop + 'px';
+            shredContainer.style.left = relativeLeft + 'px';
+            shredContainer.style.width = canvasRect.width + 'px';
+            shredContainer.style.height = canvasRect.height + 'px';
+            shredContainer.style.overflow = 'visible';
+            shredContainer.style.pointerEvents = 'none';
+            shredContainer.style.zIndex = '15';
+            wrapper.appendChild(shredContainer);
             
-            // Canvas als Bild für Pixel-Farben verwenden
+            // Schnipsel erzeugen (wie zerrissene Papierstücke)
+            const shredCount = 24; // Anzahl der Schnipsel pro Seite
+            const shreds = [];
+            
+            // Bild laden für Schnipsel
             const img = new Image();
             img.onload = function() {
-                // Temporäres Canvas für Farbextraktion
+                // Temporäres Canvas für Bilddaten
                 const tempCanvas = document.createElement('canvas');
                 tempCanvas.width = canvas.width;
                 tempCanvas.height = canvas.height;
                 const tempCtx = tempCanvas.getContext('2d');
                 tempCtx.drawImage(img, 0, 0, canvas.width, canvas.height);
                 
-                const pixels = [];
-                
-                // Pixel-Elemente mit tatsächlichen Farben erzeugen
-                for (let row = 0; row < rows; row++) {
-                    for (let col = 0; col < cols; col++) {
-                        // Berechne die entsprechende Position im Original-Canvas
-                        const srcX = Math.floor(col * (canvas.width / cols));
-                        const srcY = Math.floor(row * (canvas.height / rows));
-                        const srcW = Math.ceil(canvas.width / cols);
-                        const srcH = Math.ceil(canvas.height / rows);
-                        
-                        // Farbe aus dem Bild holen (Durchschnitt)
-                        let r = 0, g = 0, b = 0, count = 0;
-                        for (let y = 0; y < srcH && srcY + y < canvas.height; y++) {
-                            for (let x = 0; x < srcW && srcX + x < canvas.width; x++) {
-                                const pixelData = tempCtx.getImageData(srcX + x, srcY + y, 1, 1).data;
-                                r += pixelData[0];
-                                g += pixelData[1];
-                                b += pixelData[2];
-                                count++;
-                            }
-                        }
-                        if (count > 0) {
-                            r = Math.floor(r / count);
-                            g = Math.floor(g / count);
-                            b = Math.floor(b / count);
-                        }
-                        
-                        const pixel = document.createElement('div');
-                        pixel.style.position = 'absolute';
-                        pixel.style.width = pixelSize + 'px';
-                        pixel.style.height = pixelSize + 'px';
-                        pixel.style.left = (col * pixelSize) + 'px';
-                        pixel.style.top = (row * pixelSize) + 'px';
-                        pixel.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
-                        pixel.style.opacity = '1';
-                        pixel.style.transform = 'scale(1)';
-                        pixel.style.transition = 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
-                        pixel.style.borderRadius = '1px';
-                        pixel.style.boxShadow = 'inset 0 0 0 0.5px rgba(255,255,255,0.3)';
-                        
-                        // Zufällige Flugrichtung
-                        const angle = Math.random() * Math.PI * 2;
-                        const distance = 80 + Math.random() * 100;
-                        const xOffset = Math.cos(angle) * distance;
-                        const yOffset = Math.sin(angle) * distance - 30;
-                        const rotation = (Math.random() - 0.5) * 720;
-                        
-                        pixel.style.setProperty('--x', xOffset + 'px');
-                        pixel.style.setProperty('--y', yOffset + 'px');
-                        pixel.style.setProperty('--rot', rotation + 'deg');
-                        
-                        pixelContainer.appendChild(pixel);
-                        pixels.push(pixel);
-                    }
+                // Zufällige Schnipsel-Positionen und -Größen
+                for (let i = 0; i < shredCount; i++) {
+                    // Zufällige Größe (40-120px breit, 30-80px hoch)
+                    const shredWidth = 40 + Math.random() * 80;
+                    const shredHeight = 30 + Math.random() * 50;
+                    
+                    // Zufällige Position im Dokument
+                    const posX = Math.random() * (canvasRect.width - shredWidth);
+                    const posY = Math.random() * (canvasRect.height - shredHeight);
+                    
+                    // Entsprechende Position im Original-Canvas
+                    const srcX = Math.floor((posX / canvasRect.width) * canvas.width);
+                    const srcY = Math.floor((posY / canvasRect.height) * canvas.height);
+                    const srcW = Math.floor((shredWidth / canvasRect.width) * canvas.width);
+                    const srcH = Math.floor((shredHeight / canvasRect.height) * canvas.height);
+                    
+                    // Schnipsel-Bild aus dem Canvas extrahieren
+                    const shredCanvas = document.createElement('canvas');
+                    shredCanvas.width = srcW;
+                    shredCanvas.height = srcH;
+                    const shredCtx = shredCanvas.getContext('2d');
+                    shredCtx.drawImage(tempCanvas, srcX, srcY, srcW, srcH, 0, 0, srcW, srcH);
+                    
+                    // DOM-Element für Schnipsel
+                    const shred = document.createElement('div');
+                    shred.style.position = 'absolute';
+                    shred.style.left = posX + 'px';
+                    shred.style.top = posY + 'px';
+                    shred.style.width = shredWidth + 'px';
+                    shred.style.height = shredHeight + 'px';
+                    shred.style.backgroundImage = `url(${shredCanvas.toDataURL()})`;
+                    shred.style.backgroundSize = 'cover';
+                    shred.style.backgroundPosition = 'center';
+                    shred.style.boxShadow = '0 2px 6px rgba(0,0,0,0.2)';
+                    shred.style.borderRadius = '1px';
+                    shred.style.transformOrigin = 'center center';
+                    shred.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+                    
+                    // Zufällige Flugrichtung und Rotation
+                    const angle = Math.random() * Math.PI * 2;
+                    const distanceX = (Math.random() - 0.5) * 200 + (Math.random() - 0.5) * 100;
+                    const distanceY = (Math.random() - 0.5) * 150 - 80;
+                    const rotation = (Math.random() - 0.5) * 540;
+                    const delay = Math.random() * 0.4;
+                    
+                    shred.style.setProperty('--dx', distanceX + 'px');
+                    shred.style.setProperty('--dy', distanceY + 'px');
+                    shred.style.setProperty('--rot', rotation + 'deg');
+                    shred.style.setProperty('--delay', delay + 's');
+                    
+                    shredContainer.appendChild(shred);
+                    shreds.push({ shred, delay, distanceX, distanceY, rotation });
                 }
                 
-                // Animation starten: Pixel fliegen weg
+                // Animation starten
                 setTimeout(() => {
-                    pixels.forEach((pixel, idx) => {
-                        const delay = Math.random() * 0.3;
+                    shreds.forEach(({ shred, delay, distanceX, distanceY, rotation }) => {
                         setTimeout(() => {
-                            pixel.style.transform = `translate(var(--x), var(--y)) rotate(var(--rot)) scale(0.2)`;
-                            pixel.style.opacity = '0';
+                            shred.style.transform = `translate(${distanceX}px, ${distanceY}px) rotate(${rotation}deg)`;
+                            shred.style.opacity = '0';
                         }, delay * 1000);
                     });
                 }, 50);
                 
-                // Nach der Animation: Pixel-Container entfernen
+                // Nach Animation: Container entfernen und Platzhalter anzeigen
                 setTimeout(() => {
-                    pixelContainer.remove();
-                    
-                    // Wenn letzte Seite, Platzhalter anzeigen
+                    shredContainer.remove();
                     if (pageIndex === pageImages.length - 1) {
                         showPlaceholder(container);
                     }
-                }, 800);
+                }, 1000);
             };
             
-            img.src = page.imageData;
+            img.src = imageData;
         });
         
         if (pageImages.length === 0) {
@@ -286,7 +277,7 @@ document.addEventListener('DOMContentLoaded', function() {
         placeholder.style.animation = 'fadeIn 0.5s ease';
         
         placeholder.innerHTML = `
-            <div style="font-size: 4rem; margin-bottom: 1rem;">🔒</div>
+            <div style="font-size: 4rem; margin-bottom: 1rem;">📄✨</div>
             <h3 style="color: #0a3d62; margin-bottom: 1rem;">Lebenslauf auf persönliche Anfrage</h3>
             <p style="color: #555; margin-bottom: 0.5rem;">Aus Datenschutzgründen wird der vollständige Lebenslauf</p>
             <p style="color: #555; margin-bottom: 1.5rem;">nur im persönlichen Gespräch zur Verfügung gestellt.</p>
