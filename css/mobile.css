@@ -154,7 +154,7 @@
     min-width: 160px;        /* Mindestbreite, damit sie nicht zu klein werden */
     padding: 10px 20px;
     font-size: 1rem;
-    text-align: center;
+    text-align: center !important;
     margin-top: 40px;
     }
     
