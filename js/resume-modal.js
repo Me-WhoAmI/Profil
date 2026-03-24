@@ -125,7 +125,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     img.canvas.style.filter = 'blur(12px)';
                 });
                 
-                // Nach 0.5 Sekunden: Papierschnipsel-Zerfall
+                // Nach 1.5 Sekunden: Papierschnipsel-Zerfall
                 setTimeout(() => {
                     startPaperShredEffect(pagesWrapper, pageImages, container);
                 }, 1500);
@@ -139,20 +139,20 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Papierschnipsel-Zerfall-Effekt mit zufälligen gezackten Formen
+    // Papierschnipsel-Zerfall-Effekt mit gezackten Rändern (wie echtes zerrissenes Papier)
     function startPaperShredEffect(wrapper, pageImages, container) {
         const wrapperRect = wrapper.getBoundingClientRect();
         
-        // Verschiedene gezackte Papierriss-Formen
+        // Verschiedene gezackte Papierriss-Formen (echte Papierkanten)
         const paperShapes = [
-            'polygon(0% 5%, 8% 0%, 92% 0%, 100% 8%, 100% 92%, 92% 100%, 8% 100%, 0% 92%)',
-            'polygon(0% 0%, 100% 0%, 90% 100%, 10% 100%)',
-            'polygon(0% 10%, 15% 0%, 85% 0%, 100% 15%, 100% 85%, 85% 100%, 15% 100%, 0% 90%)',
-            'polygon(5% 0%, 95% 0%, 100% 10%, 100% 90%, 95% 100%, 5% 100%, 0% 90%, 0% 10%)',
-            'polygon(0% 0%, 85% 0%, 100% 15%, 100% 85%, 85% 100%, 15% 100%, 0% 85%, 0% 15%)',
-            'polygon(10% 0%, 90% 0%, 100% 20%, 100% 80%, 90% 100%, 10% 100%, 0% 80%, 0% 20%)',
-            'polygon(0% 8%, 12% 0%, 88% 0%, 100% 12%, 100% 88%, 88% 100%, 12% 100%, 0% 92%)',
-            'polygon(3% 0%, 97% 0%, 100% 5%, 100% 95%, 97% 100%, 3% 100%, 0% 95%, 0% 5%)'
+            'polygon(0% 3%, 5% 0%, 95% 0%, 100% 5%, 100% 95%, 95% 100%, 5% 100%, 0% 97%)',
+            'polygon(0% 8%, 12% 0%, 88% 0%, 100% 10%, 100% 90%, 88% 100%, 12% 100%, 0% 92%)',
+            'polygon(0% 0%, 100% 0%, 92% 100%, 8% 100%)',
+            'polygon(0% 5%, 10% 0%, 90% 0%, 100% 8%, 100% 92%, 90% 100%, 10% 100%, 0% 95%)',
+            'polygon(0% 12%, 18% 0%, 82% 0%, 100% 15%, 100% 85%, 82% 100%, 18% 100%, 0% 88%)',
+            'polygon(0% 0%, 85% 0%, 100% 20%, 100% 80%, 85% 100%, 15% 100%, 0% 80%, 0% 20%)',
+            'polygon(0% 7%, 7% 0%, 93% 0%, 100% 7%, 100% 93%, 93% 100%, 7% 100%, 0% 93%)',
+            'polygon(0% 0%, 100% 0%, 100% 85%, 90% 100%, 10% 100%, 0% 85%)'
         ];
         
         pageImages.forEach((page, pageIndex) => {
@@ -181,7 +181,7 @@ document.addEventListener('DOMContentLoaded', function() {
             wrapper.appendChild(shredContainer);
             
             // Schnipsel erzeugen (wie zerrissene Papierstücke)
-            const shredCount = 64; // Mehr Schnipsel für dynamischeren Effekt
+            const shredCount = 64;
             const shreds = [];
             
             // Bild laden für Schnipsel
@@ -233,12 +233,13 @@ document.addEventListener('DOMContentLoaded', function() {
                     shred.style.backgroundImage = `url(${shredCanvas.toDataURL()})`;
                     shred.style.backgroundSize = 'cover';
                     shred.style.backgroundPosition = 'center';
-                    shred.style.boxShadow = '2px 3px 8px rgba(0,0,0,0.25)';
-                    shred.style.borderRadius = '1px';
-                    shred.style.clipPath = randomShape;
+                    shred.style.boxShadow = '2px 3px 8px rgba(0,0,0,0.3)';
                     shred.style.transformOrigin = 'center center';
                     shred.style.transform = `rotate(${initialRotation}deg)`;
-                    shred.style.transition = 'all 20.0s cubic-bezier(0.3, 0.8, 0.4, 1.1)';
+                    shred.style.transition = 'all 2.5s cubic-bezier(0.3, 0.8, 0.4, 1.1)';
+                    // WICHTIG: clipPath nach dem backgroundImage setzen
+                    shred.style.clipPath = randomShape;
+                    shred.style.webkitClipPath = randomShape;
                     
                     // Zufällige Flugrichtung und Rotation
                     const angle = Math.random() * Math.PI * 2;
@@ -272,7 +273,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     if (pageIndex === pageImages.length - 1) {
                         showPlaceholder(container);
                     }
-                }, 2200); // Längere Wartezeit (2,2 Sekunden)
+                }, 3500);
             };
             
             img.src = imageData;
