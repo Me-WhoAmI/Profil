@@ -1105,8 +1105,14 @@ function setHeroHeight() {
             profileImage.style.height = newSize + 'px';
         }
         
-        // Hero-Höhe zurücksetzen
-        hero.style.minHeight = '';
+        // Hero-Höhe auch auf Desktop anpassen
+        const heroContent = document.querySelector('.hero-content');
+        const heroImage = document.querySelector('.hero-image');
+        const contentHeight = heroContent ? heroContent.offsetHeight : 0;
+        const imageHeight = heroImage ? heroImage.offsetHeight : 0;
+        const totalContentHeight = contentHeight + imageHeight + 300;
+        
+        hero.style.minHeight = Math.max(windowHeight, totalContentHeight) + 'px';
     }
     // Smartphone-Bereich (unter 769px)
     else {
