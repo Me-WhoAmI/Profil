@@ -312,14 +312,16 @@ document.addEventListener('DOMContentLoaded', function() {
         // Inhalt (mit CSS-Klassen)
         const content = document.createElement('div');
         content.className = 'placeholder-content';
-        
-content.innerHTML = `
+
+
+        content.innerHTML = `
     <svg class="lock-icon" width="80" height="80" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M12 2C9.24 2 7 4.24 7 7v3H6c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-8c0-1.1-.9-2-2-2h-1V7c0-2.76-2.24-5-5-5zm0 4c1.66 0 3 1.34 3 3v3H9V7c0-1.66 1.34-3 3-3z"/>
+        <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
     </svg>
     <h3>Zugriff eingeschränkt.</h3>
     <p>Relevante Informationen werden kontextbasiert bereitgestellt.</p>
 `;
+        
 
 
 
