@@ -211,6 +211,7 @@
     margin-bottom: 1.5rem;
     /*filter: drop-shadow(0 0 12px rgba(0, 255, 255, 0.6));*/
      fill:  #a8a4a4;        /* Füllfarbe (gefülltes Schloss) */
+    margin-top: -20px;
 }
 
 .placeholder-content h3 {
