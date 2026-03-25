@@ -981,6 +981,7 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('Menü-Links gefunden:', navLinks.length);
 });
 </script>
+    
 
 /* Rotation im Feld Nachricht */
     <script>
@@ -1002,72 +1003,21 @@ document.addEventListener('DOMContentLoaded', function() {
     </script>
 
 
+
+
+
+
+
+
+
+
+
     
-    // Debug-Info für Media Queries - NUR Ihre Queries
-<script>
-(function() {
-    var debugBox = document.createElement('div');
-    debugBox.style.cssText = 'position: fixed; bottom: 10px; left: 10px; background: rgba(0,0,0,0.8); color: #0f0; font-family: monospace; font-size: 12px; padding: 6px 10px; border-radius: 5px; z-index: 9999; pointer-events: none;';
-    document.body.appendChild(debugBox);
-    
-    function updateDebug() {
-        var width = window.innerWidth;
-        var activeQuery = '';
-        
-        if (width >= 769 && width <= 992) {
-            activeQuery = '📟 TABLET (769-992px)';
-        } else if (width <= 768) {
-            activeQuery = '📱 SMARTPHONE (≤768px)';
-        } else {
-            activeQuery = '💻 DESKTOP (>992px)';
-        }
-        
-        debugBox.innerHTML = '📐 ' + width + 'px | ' + activeQuery;
-    }
-    
-    window.addEventListener('resize', updateDebug);
-    updateDebug();
-})();
-</script>
 
 
 
 
-<script>
-(function() {
-    document.querySelectorAll('nav a').forEach(function(link) {
-        link.addEventListener('click', function(e) {
-            var href = this.getAttribute('href');
-            
-            if (href && href.startsWith('#')) {
-                e.preventDefault();
-                
-                var target = document.querySelector(href);
-                
-                if (target) {
-                    var header = document.querySelector('header');
-                    var headerHeight = header ? header.offsetHeight : 70;
-                    var targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
-                    
-                    // Für Tablet (769px - 992px) zusätzlichen Abstand
-                    var width = window.innerWidth;
-                    if (width >= 769 && width <= 992) {
-                        targetPosition = targetPosition - 70; // 20px extra nach unten
-                    }
-                    
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth'
-                    });
-                }
-            }
-        });
-    });
-})();
-</script>
-
-
-    /* Damit wird auf Tablet die erste Seite immer korrekt angezeigt */
+    /* Damit wird auf Tablet und Desktop die erste Seite immer korrekt angezeigt egal wie die Fenstergröße ist */
     <script>
 function setHeroHeight() {
     const hero = document.querySelector('.hero');
