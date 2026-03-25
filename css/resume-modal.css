@@ -204,11 +204,10 @@
 .lock-icon {
     width: 80px;
     height: 80px;
-    margin-bottom: 1.5rem;
-    margin-top: -60px;  /* ← nach oben verschieben */
     stroke: #928e8e;
     fill: #a8a4a4;
     stroke-width: 1.2;
+       margin-bottom: 2.5rem;  /* ← größerer Abstand nach unten */
 }
 
 
