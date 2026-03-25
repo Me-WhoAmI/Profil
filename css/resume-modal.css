@@ -196,26 +196,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-/*.placeholder-container {
-    position: relative;
-    min-height: 400px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    animation: fadeIn 0.5s ease;
-}*/
-
 /* Inhalt */
 .placeholder-content {
     position: relative;
@@ -227,7 +207,7 @@
 .lock-icon {
     font-size: 5rem;
     margin-bottom: 1.5rem;
-    filter: drop-shadow(0 0 12px rgba(0, 255, 255, 0.6));
+    /*filter: drop-shadow(0 0 12px rgba(0, 255, 255, 0.6));*/
 }
 
 .placeholder-content h3 {
