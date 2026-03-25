@@ -299,22 +299,24 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
-    // Platzhalter nach Zerfall anzeigen mit glitzernden Sternen (nur Cyan, nur ✨) - GLITZER AUSKOMMENTIERT ZUM TESTEN
+    // Platzhalter nach Zerfall anzeigen mit SVG-Schloss
     function showPlaceholder(container) {
         container.innerHTML = '';
         
         // Container für den Platzhalter
         const placeholder = document.createElement('div');
         placeholder.className = 'placeholder-container';
+        placeholder.style.height = '100%';
+        placeholder.style.minHeight = '100%';
         
         // Inhalt (mit CSS-Klassen)
         const content = document.createElement('div');
         content.className = 'placeholder-content';
-        placeholder.style.height = '100%';  // ← Höhe auf 100% setzen
-placeholder.style.minHeight = '100%';
         
         content.innerHTML = `
-            <i class="fas fa-lock"></i> 
+            <svg class="lock-icon" width="80" height="80" viewBox="0 0 50 50" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M 25 3 C 18.363281 3 13 8.363281 13 15 L 13 20 L 9 20 C 7.355469 20 6 21.355469 6 23 L 6 47 C 6 48.644531 7.355469 50 9 50 L 41 50 C 42.644531 50 44 48.644531 44 47 L 44 23 C 44 21.355469 42.644531 20 41 20 L 37 20 L 37 15 C 37 8.363281 31.636719 3 25 3 Z M 25 5 C 30.566406 5 35 9.433594 35 15 L 35 20 L 15 20 L 15 15 C 15 9.433594 19.433594 5 25 5 Z M 9 22 L 41 22 C 41.554688 22 42 22.445313 42 23 L 42 47 C 42 47.554688 41.554688 48 41 48 L 9 48 C 8.445313 48 8 47.554688 8 47 L 8 23 C 8 22.445313 8.445313 22 9 22 Z M 25 30 C 23.300781 30 22 31.300781 22 33 C 22 33.898438 22.398438 34.6875 23 35.1875 L 23 38 C 23 39.101563 23.898438 40 25 40 C 26.101563 40 27 39.101563 27 38 L 27 35.1875 C 27.601563 34.6875 28 33.898438 28 33 C 28 31.300781 26.699219 30 25 30 Z"/>
+            </svg>
             <h3>Zugriff eingeschränkt.</h3>
             <p>Relevante Informationen werden kontextbasiert bereitgestellt.</p>
         `;
@@ -329,14 +331,12 @@ placeholder.style.minHeight = '100%';
         glitzerContainer.className = 'glitzer-container';
         placeholder.appendChild(glitzerContainer);
         
-        // Nur ✨ als Glitzer
         const glitzerShapes = ['✨'];
         
         function createGlitzer() {
             const glitzer = document.createElement('div');
             const randomShape = glitzerShapes[Math.floor(Math.random() * glitzerShapes.length)];
             const size = 14 + Math.random() * 18;
-            // Verwende offsetWidth/offsetHeight für vollflächige Verteilung
             const posX = Math.random() * placeholder.offsetWidth;
             const posY = Math.random() * placeholder.offsetHeight;
             
@@ -345,7 +345,6 @@ placeholder.style.minHeight = '100%';
             glitzer.style.left = posX + 'px';
             glitzer.style.top = posY + 'px';
             glitzer.style.fontSize = size + 'px';
-            // Farbe mit !important erzwingen
             glitzer.style.setProperty('color', '#00ffff', 'important');
             glitzer.style.textShadow = `0 0 ${6 + Math.random() * 10}px rgba(0,255,255,0.9)`;
             glitzer.style.opacity = '0';
@@ -365,7 +364,6 @@ placeholder.style.minHeight = '100%';
             }, 50);
         }
         
-        // Kurze Verzögerung, damit der Container vollständig gerendert ist
         setTimeout(() => {
             let glitzerInterval = setInterval(() => {
                 if (placeholder.isConnected) {
@@ -376,7 +374,6 @@ placeholder.style.minHeight = '100%';
             }, 350);
         }, 100);
         
-        // Animation stoppen wenn Modal geschlossen wird
         const modalElement = document.getElementById('resume-modal');
         let glitzerIntervalId = null;
         
@@ -395,9 +392,6 @@ placeholder.style.minHeight = '100%';
         });
         */
         // ========== ENDE AUSKOMMENTIERTER GLITZER ==========
-        
-        // Download-Button wurde bereits beim Klick ausgeblendet, daher hier nicht nötig
-        // Footer bleibt sichtbar
     }
     
     // Modal schließen
