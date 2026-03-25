@@ -310,6 +310,8 @@ document.addEventListener('DOMContentLoaded', function() {
         // Inhalt (mit CSS-Klassen)
         const content = document.createElement('div');
         content.className = 'placeholder-content';
+        placeholder.style.height = '100%';  // ← Höhe auf 100% setzen
+placeholder.style.minHeight = '100%';
         
         content.innerHTML = `
             <div class="lock-icon">🔒</div>
