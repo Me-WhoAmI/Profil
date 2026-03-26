@@ -1045,8 +1045,9 @@ function setHeroHeight() {
         const contentHeight = heroContent ? heroContent.offsetHeight : 0;
         const imageHeight = heroImage ? heroImage.offsetHeight : 0;
         const totalContentHeight = contentHeight + imageHeight + 300;
+
+        hero.style.minHeight = Math.min(windowHeight * 1.2, Math.max(windowHeight, totalContentHeight)) + 'px';
         
-        hero.style.minHeight = Math.max(windowHeight, totalContentHeight) + 'px';
     }
     // Desktop-Bereich (ab 993px)
     else if (width > 992) {
