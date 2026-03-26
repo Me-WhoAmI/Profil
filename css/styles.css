@@ -1536,8 +1536,8 @@ footer {
     text-align: center;
     padding: 2rem 0;
     margin-top: 0;
-   padding-bottom: 0;
-    margin-bottom: 0;
+   padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
 }
 
 footer p {
