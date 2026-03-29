@@ -486,50 +486,48 @@
         width: 100% !important;
         max-width: 100% !important;
         justify-content: space-between !important;
+        flex-wrap: nowrap !important;
+        gap: 10px !important; /* Abstand zwischen den Elementen */
+    }
+    
+    nav {
+        margin-right: 15px !important; /* Mindestabstand zum rechten Bereich */
     }
     
     nav ul {
-        gap: 10px !important;
+        gap: 6px !important; /* Reduzierter Abstand zwischen Menüpunkten */
+        flex-wrap: nowrap !important;
     }
     
     nav ul li a {
-        font-size: 0.85rem !important;
-        padding: 6px 10px !important;
+        font-size: 0.75rem !important; /* Kleinere Schrift */
+        padding: 4px 6px !important;
     }
     
     .logo {
-        font-size: 1.3rem !important;
+        font-size: 1.1rem !important;
     }
     
-
+    .language-selector select,
     .resume-btn {
-        height: 32px !important;
-        font-size: 0.75rem !important;
-        padding: 4px 10px !important;
-        max-width: 120px !important;
+        height: 28px !important;
+        font-size: 0.65rem !important;
+        padding: 4px 8px !important;
         white-space: nowrap !important;
-        overflow: hidden !important;
+    }
+    
+    .language-selector select {
+        padding-right: 28px !important;
+        background-position: right 8px center !important;
     }
 
 
-    .language-selector select {
-    height: 32px !important;
-    font-size: 0.75rem !important;
-    padding: 4px 10px !important;
-    padding-right: 30px !important; /* Überschreibt das rechte Padding */
-    background-position: right 10px center !important;
-    background-size: 10px !important;
-    text-align: left !important;
-    text-align-last: left !important;
-}
+
+
+
 
         
 
-
-
-        .header-right {
-    margin-left: 20px !important;
-}
 
 
 
