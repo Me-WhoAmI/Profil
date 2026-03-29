@@ -491,6 +491,7 @@
        - UND Hochformat (Höhe > Breite)
        - Typische Beispiele: iPad im Hochformat, große Tablets, Desktop-Monitore im Hochformat
        - Achtung: Erfasst auch große Desktop-Monitore im Hochformat!
+    */
 */ ======================================== */
     @media (orientation: portrait) and (min-width: 769px) {
     /* Header/Menü anpassen */
@@ -619,7 +620,7 @@
        - Typische Beispiele: Smartphones im Hochformat, schmale Tablet-Fenster im Hochformat
        - Auch schmale Desktop-Fenster unter 769px im Hochformat
     */
-
+/* ======================================== */
 @media (max-width: 768px) and (orientation: portrait) {
     
     /* === BASIS-TYPOGRAFIE === */
@@ -969,7 +970,7 @@
        - unabhängig von der Orientierung (sowohl Hoch- als auch Querformat)
        - Typische Beispiele: Smartphones, schmale Tablets, schmale Desktop-Fenster
     */
-
+/* ======================================== */
 @media (max-width: 768px) {
     
     /* === BASIS-TYPOGRAFIE KOMPAKTER === */
