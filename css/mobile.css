@@ -1360,31 +1360,49 @@
 /* ======================================== */
 @media (orientation: portrait) and (min-width: 769px) {
     
-    /* Header/Menü anpassen */
+    /* Header/Menü - FLEXIBEL ANGEPASST */
     header .container {
         width: 100% !important;
         max-width: 100% !important;
+        display: flex !important;
         justify-content: space-between !important;
-        flex-wrap: nowrap !important;
-        gap: 2vw !important;
-    }
-    
-    nav {
-        margin-right: 15px !important;
-    }
-    
-    nav ul {
-        gap: 6px !important;
-        flex-wrap: nowrap !important;
-    }
-    
-    nav ul li a {
-        font-size: 0.9rem !important;
-        padding: 4px 6px !important;
+        align-items: center !important;
+        flex-wrap: wrap !important;           /* Umbruch bei Bedarf */
+        gap: 10px !important;                 /* Reduziert von 2vw */
+        padding: 0 20px !important;
     }
     
     .logo {
         font-size: 1.5rem !important;
+        flex-shrink: 0 !important;            /* Bleibt in voller Größe */
+    }
+    
+    nav {
+        margin-right: 0 !important;           /* Entfernt */
+        flex: 1 !important;                   /* Nimmt verfügbaren Platz */
+        overflow-x: auto !important;          /* Scrollbar bei Überlauf */
+        -webkit-overflow-scrolling: touch !important;
+    }
+    
+    nav ul {
+        display: flex !important;
+        justify-content: center !important;   /* Zentriert bei Platz */
+        gap: 12px !important;                /* Etwas mehr Abstand */
+        flex-wrap: nowrap !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    
+    nav ul li a {
+        font-size: 0.9rem !important;
+        padding: 6px 10px !important;         /* Etwas mehr Padding */
+        white-space: nowrap !important;
+    }
+    
+    .header-right {
+        display: flex !important;
+        gap: 10px !important;
+        flex-shrink: 0 !important;            /* Bleibt in voller Größe */
     }
     
     .language-selector select,
@@ -1428,10 +1446,10 @@
         position: relative !important;
         z-index: 3 !important;
         display: flex !important;
-        flex-direction: row !important;      /* ZEILE statt SPALTE */
+        flex-direction: row !important;
         align-items: center !important;
         justify-content: space-between !important;
-        text-align: left !important;         /* Linksbündig statt zentriert */
+        text-align: left !important;
         width: 100% !important;
         max-width: 1100px !important;
         gap: 50px !important;
@@ -1439,11 +1457,11 @@
     }
     
     .hero-content {
-        order: 1 !important;                 /* TEXT LINKS */
+        order: 1 !important;
         max-width: 55% !important;
         width: 100% !important;
         margin-top: 0 !important;
-        text-align: center !important;  
+        text-align: center !important;
     }
     
     .hero-content h1 {
@@ -1462,7 +1480,7 @@
     }
     
     .hero-image {
-        order: 2 !important;                 /* BILD RECHTS */
+        order: 2 !important;
         margin-top: 0 !important;
         flex-shrink: 0 !important;
     }
@@ -1477,7 +1495,7 @@
     .hero-buttons {
         display: flex !important;
         flex-direction: row !important;
-        justify-content: center !important;  /* Links ausrichten */
+        justify-content: center !important;
         gap: 15px !important;
         margin-top: 30px !important;
         width: 100% !important;
@@ -1490,6 +1508,7 @@
         text-align: center !important;
     }
 }
+
 
 
 
