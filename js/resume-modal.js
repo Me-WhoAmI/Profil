@@ -91,7 +91,19 @@ document.addEventListener('DOMContentLoaded', function() {
             pagesWrapper.className = 'pages-wrapper';
             pagesWrapper.style.position = 'relative';
             pagesWrapper.style.width = '100%';
-            pagesWrapper.style.maxHeight = '70vh';
+
+            // Speziell für schmale Fenster
+if (window.innerWidth <= 480) {
+    pagesWrapper.style.maxHeight = 'none';
+    pagesWrapper.style.minHeight = '550px';
+} else {
+    pagesWrapper.style.maxHeight = '70vh';
+    pagesWrapper.style.minHeight = '400px';
+}
+
+
+
+            
             pagesWrapper.style.overflowY = 'auto';
             pagesWrapper.style.overflowX = 'hidden';
             pagesWrapper.style.borderRadius = '8px';
