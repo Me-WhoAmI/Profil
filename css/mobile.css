@@ -1372,7 +1372,7 @@
     }
     
     .logo {
-        font-size: 1.2rem !important;
+        font-size: 1.4rem !important;
         flex-shrink: 0 !important;
     }
     
@@ -1393,7 +1393,7 @@
     }
     
     nav ul li a {
-        font-size: 0.75rem !important;
+        font-size: 0.8rem !important;
         padding: 4px 6px !important;
         white-space: nowrap !important;
     }
