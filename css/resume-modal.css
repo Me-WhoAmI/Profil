@@ -291,6 +291,22 @@
 }
 
 
+/* Nur für extrem schmale Fenster */
+@media (max-width: 480px) {
+    #pdfjs-container {
+        min-height: 550px;
+    }
+    
+    .pages-wrapper {
+        max-height: none !important;
+        min-height: 550px !important;
+    }
+    
+    .placeholder-container {
+        min-height: 550px !important;
+    }
+}
+
     
 
 
