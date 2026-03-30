@@ -290,14 +290,14 @@
     }    
 }
 
-
-/* Wenn Höhe mehr als doppelt so groß wie Breite */
-@media (max-aspect-ratio: 1/2) {
+@media (max-height: 800px) and (max-width: 400px) {
     .modal-content {
         max-height: none !important;
         height: auto !important;
     }
 }
+
+
 
 
 
