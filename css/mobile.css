@@ -483,6 +483,10 @@
 
 
 
+
+
+
+
 /* ======================================== */
 /* 3. TABLET-HOCHFORMAT & GROSSE HOCHFORMATE */
 /* ======================================== */
@@ -493,27 +497,27 @@
        - Achtung: Erfasst auch große Desktop-Monitore im Hochformat!
     */
 */ ======================================== */
-    @media (orientation: portrait) and (min-width: 769px) {
+@media (orientation: portrait) and (min-width: 769px) {
     /* Header/Menü anpassen */
     header .container {
         width: 100% !important;
         max-width: 100% !important;
         justify-content: space-between !important;
         flex-wrap: nowrap !important;
-        gap: 2vw !important; /* Abstand zwischen den Elementen */
+        gap: 2vw !important;
     }
     
     nav {
-        margin-right: 15px !important; /* Mindestabstand zum rechten Bereich */
+        margin-right: 15px !important;
     }
     
     nav ul {
-        gap: 6px !important; /* Reduzierter Abstand zwischen Menüpunkten */
+        gap: 6px !important;
         flex-wrap: nowrap !important;
     }
     
     nav ul li a {
-        font-size: 0.75rem !important; /* Kleinere Schrift */
+        font-size: 0.75rem !important;
         padding: 4px 6px !important;
     }
     
@@ -534,21 +538,26 @@
         background-position: right 8px center !important;
     }
 
-    
+    /* HERO - Gehirnbild jetzt sichtbar */
     .hero {
         background-color: #0f2a4a !important;
-        background-image: none !important;
         position: relative !important;
         overflow: hidden !important;
-        height: 100dvh !important;
-        min-height: 0 !important;
+        min-height: 100vh !important;
         display: flex !important;
         align-items: center !important;
         justify-content: center !important;
+        padding: 80px 0 !important;
     }
     
+    /* Gehirnbild BEHALTEN (nicht ausblenden) */
     .hero-brain {
-        display: none !important;
+        opacity: 0.15 !important;
+        left: -50% !important;
+        width: 200% !important;
+        position: absolute !important;
+        top: 50% !important;
+        transform: translateY(-50%) !important;
     }
     
     .hero .container {
@@ -560,13 +569,14 @@
         justify-content: center !important;
         text-align: center !important;
         width: 100% !important;
-        gap: 100px !important; /* Vergrößerter Abstand zwischen Bild und Text */
+        gap: 50px !important;
         padding: 0 20px !important;
     }
     
     .hero-content {
         order: 2 !important;
         width: 100% !important;
+        max-width: 600px !important;
     }
     
     .hero-image {
@@ -574,41 +584,48 @@
     }
     
     .profile-image {
-        width: 220px !important;
-        height: 220px !important;
+        width: 200px !important;
+        height: 200px !important;
     }
     
-    /* Abstand innerhalb des Textbereichs vergrößern */
     .hero-content h1 {
-        margin-bottom: 20px !important;
+        margin-bottom: 15px !important;
+        font-size: clamp(2rem, 5vw, 2.5rem) !important;
     }
     
     .hero-content h2 {
-        margin-bottom: 20px !important;
+        margin-bottom: 15px !important;
+        font-size: clamp(1.2rem, 3vw, 1.5rem) !important;
     }
     
     .hero-content p {
-        margin-bottom: 30px !important;
+        margin-bottom: 25px !important;
+        font-size: 1rem !important;
     }
     
-    /* Buttons gleich breit machen */
     .hero-buttons {
         display: flex !important;
         flex-direction: row !important;
         justify-content: center !important;
         gap: 20px !important;
         width: 100% !important;
-        margin-top: 20px !important;
+        margin-top: 10px !important;
+        flex-wrap: wrap !important;
     }
     
     .hero-buttons .btn {
-        flex: 1 !important;
-        max-width: 250px !important;
-        min-width: 180px !important;
+        flex: 0 1 auto !important;
+        max-width: 220px !important;
+        min-width: 160px !important;
         text-align: center !important;
         white-space: nowrap !important;
+        padding: 10px 20px !important;
     }
 }
+
+
+
+
 
 
 /* ======================================== */
