@@ -538,7 +538,7 @@
         background-position: right 8px center !important;
     }
 
-    /* HERO - Gehirnbild jetzt sichtbar */
+    /* HERO - MIT ROTER UMRANDUNG ZUM TESTEN */
     .hero {
         background-color: #0f2a4a !important;
         position: relative !important;
@@ -549,9 +549,10 @@
         justify-content: center !important;
         padding: 80px 0 !important;
         border: 3px solid red !important;  /* ROTE UMRANDUNG */
+        box-sizing: border-box !important;
     }
     
-    /* Gehirnbild BEHALTEN (nicht ausblenden) */
+    /* Gehirnbild BEHALTEN */
     .hero-brain {
         opacity: 0.15 !important;
         left: -50% !important;
@@ -559,6 +560,7 @@
         position: absolute !important;
         top: 50% !important;
         transform: translateY(-50%) !important;
+        border: 2px solid yellow !important;  /* GELBE UMRANDUNG FÜRS GEHIRNBILD */
     }
     
     .hero .container {
@@ -572,21 +574,25 @@
         width: 100% !important;
         gap: 50px !important;
         padding: 0 20px !important;
+        border: 2px solid blue !important;  /* BLAUE UMRANDUNG FÜR CONTAINER */
     }
     
     .hero-content {
         order: 2 !important;
         width: 100% !important;
         max-width: 600px !important;
+        border: 2px solid green !important;  /* GRÜNE UMRANDUNG FÜR CONTENT */
     }
     
     .hero-image {
         order: 1 !important;
+        border: 2px solid orange !important;  /* ORANGE UMRANDUNG FÜR BILD-BEREICH */
     }
     
     .profile-image {
         width: 200px !important;
         height: 200px !important;
+        border: 2px solid cyan !important;  /* CYAN UMRANDUNG FÜR PROFILBILD */
     }
     
     .hero-content h1 {
@@ -612,6 +618,7 @@
         width: 100% !important;
         margin-top: 10px !important;
         flex-wrap: wrap !important;
+        border: 2px solid magenta !important;  /* MAGENTA UMRANDUNG FÜR BUTTONS */
     }
     
     .hero-buttons .btn {
@@ -621,8 +628,12 @@
         text-align: center !important;
         white-space: nowrap !important;
         padding: 10px 20px !important;
+        border: 2px solid white !important;  /* WEISSE UMRANDUNG FÜR JEDEN BUTTON */
     }
 }
+
+
+
 
 
 
