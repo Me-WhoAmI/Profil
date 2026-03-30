@@ -1439,7 +1439,7 @@
         width: 200% !important;
         height: auto !important;
         transform: translateY(-50%) rotate(-90deg) !important;
-        opacity: 0.15 !important;
+        opacity: 0.25 !important;
         z-index: 1 !important;
         pointer-events: none !important;
     }
