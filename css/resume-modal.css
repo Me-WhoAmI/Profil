@@ -290,7 +290,12 @@
     }    
 }
 
-
+@media (orientation: portrait) and (max-width: 600px) {
+    .modal-content {
+        max-height: none !important;
+        height: auto !important;
+    }
+}
 
 
 
