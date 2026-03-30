@@ -1417,6 +1417,12 @@
         background-position: right 4px center !important;
     }
 
+    .header-right {
+    display: flex !important;
+    gap: 6px !important;
+    flex-shrink: 0 !important;
+    margin-left: 15px !important;  /* Mindestabstand zum letzten Menüpunkt */
+}
 
 
 
