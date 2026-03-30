@@ -1520,7 +1520,15 @@
 
 
 
-
+/* ======================================== */
+/* 6. DESKTOP & GROSSE BILDSCHIRME (>992px) */
+/* ======================================== */
+@media (min-width: 993px) {
+    .hero {
+        margin-top: 80px !important;
+        min-height: calc(100vh - 80px) !important;
+    }
+}
 
 
 
