@@ -407,6 +407,7 @@ section {
     background-image: url('../images/profile.png');
     background-size: cover;        /* ← FEHLT: Skaliert das Bild richtig */
     background-position: center;   /* ← FEHLT: Zentriert das Bild */
+    pointer-events: none;  /* Deaktiviert alle Interaktionen */
     /*object-fit: cover;*/
     box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
     border: 4px solid #00ffff;
