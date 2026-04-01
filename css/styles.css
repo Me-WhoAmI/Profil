@@ -865,7 +865,7 @@ section {
     height: 100%;
     display: block;
     object-fit: contain;    /* ← NEU: sorgt für einheitliche Skalierung */
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
 }
 
 /* Hover-Effekt für SVGs */
