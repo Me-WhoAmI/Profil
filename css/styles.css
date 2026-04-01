@@ -383,8 +383,12 @@ section {
 
 .hero-image {
     position: relative;
-    z-index: 3;
+    z-index: 3;    
+    -webkit-touch-callout: none;  /* Verhindert das iOS-Menü bei langem Druck */
+    -webkit-user-select: none;    /* Verhindert die Markierung von Text */
+    user-select: none;
 }
+
 
 .hero-brain {
     position: absolute;
