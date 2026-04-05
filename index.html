@@ -1075,6 +1075,40 @@ document.addEventListener('DOMContentLoaded', function() {
     </script>   
 
 
+
+
+    
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+    const trigger = document.getElementById('videoTrigger');
+    const container = document.getElementById('videoContainer');
+    const video = document.getElementById('heroVideo');
+    const closeBtn = document.getElementById('closeVideoBtn');
+
+    // Beim Klick auf den Text
+    trigger.onclick = function() {
+        if (container.style.display === 'none') {
+            container.style.display = 'block';  // Video anzeigen
+            video.play();                       // Starten
+            video.loop = false;                 // Nur 1x abspielen
+        } else {
+            // Falls schon offen: Schließen (optional)
+            video.pause();
+            video.currentTime = 0;
+            container.style.display = 'none';
+        }
+    };
+
+    // Beim Klick auf den Schließen-Button
+    closeBtn.onclick = function() {
+        video.pause();          // Stoppen
+        video.currentTime = 0;  // Zurückspulen
+        container.style.display = 'none';
+    };
+});
+</script>
+
+
     
 </body>
 </html>
