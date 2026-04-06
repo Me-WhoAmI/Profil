@@ -434,6 +434,54 @@ section {
 
 
 
+/* Video Modal - Kino-Atmosphäre */
+.video-modal {
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000000;
+    animation: fadeIn 0.3s;
+}
+
+.video-modal-content {
+    position: relative;
+    margin: auto;
+    padding: 0;
+    width: 90%;
+    max-width: 800px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.video-modal-content video {
+    border: 3px solid white;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    width: 100%;
+    height: auto;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+#videoTrigger {
+    cursor: pointer;
+    transition: color 0.3s;
+    display: inline-block;
+}
+
+#videoTrigger:hover {
+    color: #00ffff;
+}
+
+
+
 
 /* ========================================
    ABOUT SECTION
