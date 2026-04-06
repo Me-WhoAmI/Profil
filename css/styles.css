@@ -458,7 +458,7 @@ section {
 }
 
 .video-modal-content video {
-    border: 3px solid white;
+    border: 3px solid #00ffff;
     border-radius: 8px;
     box-shadow: 0 0 20px rgba(0,0,0,0.5);
     width: 100%;
