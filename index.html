@@ -53,7 +53,32 @@
                 <div class="hero-content">
                     <h1>Astrid Kraft</h1>
                     <h2 data-i18n="hero_title">IT-Spezialistin & KI-Expertin</h2>
-                    <p data-i18n="hero_subtitle">Innovative Lösungen für eine digitale Zukunft</p> 
+                   <!-- <p data-i18n="hero_subtitle">Innovative Lösungen für eine digitale Zukunft</p> -->
+
+
+                                <!-- Klickbarer Text mit Kamerasymbol -->
+            <p data-i18n="hero_subtitle" id="videoTrigger" style="cursor: pointer;">🎥 Innovative Lösungen für eine digitale Zukunft</p>
+            
+            <!-- Kino-Modal für 5-Sekunden-Video -->
+            <div id="videoModal" class="video-modal">
+                <div class="video-modal-content">
+                    <video id="shortVideo" width="100%">
+                        <source src="images/DEIN_KURZES_VIDEO.mp4" type="video/mp4">
+                        Ihr Browser unterstützt kein HTML5-Video.
+                    </video>
+                </div>
+            </div>
+
+                    
+
+
+
+
+
+
+
+
+                    
                     
                     <div class="hero-buttons">
                         <a href="index.html#contact" class="btn btn-primary" data-i18n="hero_contact_btn">Kontakt aufnehmen</a>
@@ -1054,6 +1079,31 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     </script>   
+
+
+
+
+    <script>
+// ===== KINO-MODAL FÜR 5-SEKUNDEN-VIDEO =====
+document.addEventListener('DOMContentLoaded', function() {
+    const modal = document.getElementById('videoModal');
+    const trigger = document.getElementById('videoTrigger');
+    const shortVideo = document.getElementById('shortVideo');
+    
+    if (modal && trigger && shortVideo) {
+        trigger.onclick = function() {
+            modal.style.display = 'block';
+            shortVideo.currentTime = 0;
+            shortVideo.play();
+        };
+        
+        shortVideo.onended = function() {
+            modal.style.display = 'none';
+            shortVideo.currentTime = 0;
+        };
+    }
+});
+</script>
 
 
 
