@@ -477,16 +477,15 @@ section {
     display: inline-block;
 }
 
-/* Überschrift */
+
+/* Responsive Modal-Anpassungen */
 .modal-headline {
-    text-align: center;
-    color: white;
-    margin-bottom: 50px;
-    font-size: 1.4rem;
-    font-weight: 500;
-    letter-spacing: 4px;
-    font-family: inherit;
+    font-size: clamp(1rem, 4vw, 1.4rem);
+    margin-bottom: clamp(25px, 5vw, 50px);
+    letter-spacing: clamp(2px, 1vw, 4px);
 }
+
+
 
 
 
