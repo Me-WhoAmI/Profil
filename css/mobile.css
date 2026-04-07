@@ -202,6 +202,28 @@
         opacity: 0.2;
         left: -50%;
     }
+
+
+    /* === VIDEO MODAL TABLET QUERFORMAT === */
+.modal-headline {
+    font-size: 1.2rem;
+    margin-bottom: 35px;
+    letter-spacing: 3px;
+}
+
+.video-modal-content {
+    width: 85%;
+    max-width: 600px;
+}
+
+.video-modal-content video {
+    border-width: 2.5px;
+}
+
+#videoTrigger::before {
+    filter: brightness(1.25);
+    margin-right: 5px;
+}
     
     /* === ABOUT SECTION === */
     .about-content {
@@ -685,6 +707,27 @@
     .hero-brain {
         display: none !important;
     }
+
+    /* === VIDEO MODAL SMARTPHONE HOCHFORMAT === */
+.modal-headline {
+    font-size: 1rem;
+    margin-bottom: 25px;
+    letter-spacing: 2px;
+}
+
+.video-modal-content {
+    width: 95%;
+    max-width: 95%;
+}
+
+.video-modal-content video {
+    border-width: 2px;
+}
+
+#videoTrigger::before {
+    filter: brightness(1.2);
+    margin-right: 4px;
+}
     
     /* === ABOUT SECTION === */
     .about-content {
@@ -1573,6 +1616,21 @@
         height: auto !important;
     }
 
+    /* === VIDEO MODAL TABLET HOCHFORMAT === */
+.modal-headline {
+    font-size: 1.15rem;
+    margin-bottom: 40px;
+    letter-spacing: 3px;
+}
+
+.video-modal-content {
+    width: 80%;
+    max-width: 550px;
+}
+
+.video-modal-content video {
+    border-width: 2.5px;
+}
     
 }
 
