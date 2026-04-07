@@ -1184,13 +1184,16 @@ section {
         }
 
 
-      /* Entfernt nur Hover-Effekt für Links im Karussell */
-.carousel-body a:hover {
-    color: inherit;
+/* Link bleibt immer blau - keine Hover/Klick/Visited-Effekte */
+.carousel-body a,
+.carousel-body a:hover,
+.carousel-body a:active,
+.carousel-body a:visited,
+.carousel-body a:focus {
+    color: #3e92cc !important;
     text-decoration: none;
     background: transparent;
 }
-
 
 
 
