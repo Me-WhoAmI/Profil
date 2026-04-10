@@ -1228,6 +1228,17 @@ section {
             font-weight: bold;
         }
 
+
+ /* Speziell für den Hugging Face Link in Slide 4 */
+.carousel-body li a[href*="huggingface.co"] {
+    word-break: break-all;
+    display: inline-block;
+    max-width: 100%;
+}
+
+
+
+
         .carousel-tags {
             display: flex;
             flex-wrap: wrap;
