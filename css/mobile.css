@@ -546,7 +546,7 @@
 
 
 /* ======================================== */
-/* 4. SMARTPHONE & SCHMALE FENSTER - HOCHFORMAT */
+/* 3. SMARTPHONE & SCHMALE FENSTER - HOCHFORMAT */
 /* ======================================== */
     /* Greift bei:
        - Alle Geräte mit Breite <= 768px
@@ -922,7 +922,7 @@
 
 
 /* ======================================== */
-/* 5. Smartphones & schmale Fenster (egal ob Hoch- oder Querformat) */
+/* 4. Smartphones & schmale Fenster (egal ob Hoch- oder Querformat) */
 /* ======================================== */
     /* Greift für ALLE Geräte mit Breite ≤ 768px 
        - unabhängig von der Orientierung (sowohl Hoch- als auch Querformat)
@@ -1450,7 +1450,7 @@
 
 
 /* ======================================== */
-/* 3. TABLET-HOCHFORMAT & GROSSE HOCHFORMATE */
+/* 5. TABLET-HOCHFORMAT & GROSSE HOCHFORMATE */
 /* ======================================== */
     /* Greift bei:
        - Alle Geräte mit Breite >= 769px
