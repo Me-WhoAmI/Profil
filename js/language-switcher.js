@@ -58,21 +58,15 @@ const translations = {
         "exp1_date": "seit 09/2024 - heute",
         "exp1_title": "Berufliche Neuorientierung",
         "exp1_company": "Selbständig",
-
         "exp1_subtitle_ai": "Künstliche Intelligenz & Systemverständnis",
-"exp1_item_agents": "KI-Agenten & autonome Systeme",
-"exp1_item_llm": "Sprachmodelle & Transformer-Architekturen",
-"exp1_item_neural": "Neuronale Netzarchitekturen (MLP, CNN, Spezialfälle)",
-"exp1_item_multimodal": "Multimodale KI-Systeme",
-"exp1_item_training": "Training von KI-Modellen",
-"exp1_item_retrieval": "Retrieval-Systeme & Vektordatenbanken",
-"exp1_item_deployment": "KI-Deployment & Containerisierung",
-"exp1_item_ml": "Klassisches Machine Learning",
-
-
-
-
-
+        "exp1_item_agents": "KI-Agenten & autonome Systeme",
+        "exp1_item_llm": "Sprachmodelle & Transformer-Architekturen",
+        "exp1_item_neural": "Neuronale Netzarchitekturen (MLP, CNN, Spezialfälle)",
+        "exp1_item_multimodal": "Multimodale KI-Systeme",
+        "exp1_item_training": "Training von KI-Modellen",
+        "exp1_item_retrieval": "Retrieval-Systeme & Vektordatenbanken",
+        "exp1_item_deployment": "KI-Deployment & Containerisierung",
+        "exp1_item_ml": "Klassisches Machine Learning",
         "exp1_subtitle_projects": "Praxisprojekte",
         "exp1_item_codeagent": "KI-Code-Agent - Grundstruktur mit eigener Bedienoberfläche, Sentence Transformer",
         "exp1_item_stable": "Stable Diffusion, Realistic Vision, ControlNet, SAM 2, Midas",
@@ -352,25 +346,15 @@ const translations = {
         "exp1_date": "since 09/2024 - present",
         "exp1_title": "Professional Reorientation",
         "exp1_company": "Self-employed",
-
-
         "exp1_subtitle_ai": "Artificial Intelligence & System Understanding",
-"exp1_item_agents": "AI Agents & Autonomous Systems",
-"exp1_item_llm": "Language Models & Transformer Architectures",
-"exp1_item_neural": "Neural Network Architectures (MLP, CNN, Special Cases)",
-"exp1_item_multimodal": "Multimodal AI Systems",
-"exp1_item_training": "Training of AI Models",
-"exp1_item_retrieval": "Retrieval Systems & Vector Databases",
-"exp1_item_deployment": "AI Deployment & Containerization",
-"exp1_item_ml": "Classical Machine Learning",
-
-
-
-
-
-
-        
-    
+        "exp1_item_agents": "AI Agents & Autonomous Systems",
+        "exp1_item_llm": "Language Models & Transformer Architectures",
+        "exp1_item_neural": "Neural Network Architectures (MLP, CNN, Special Cases)",
+        "exp1_item_multimodal": "Multimodal AI Systems",
+        "exp1_item_training": "Training of AI Models",
+        "exp1_item_retrieval": "Retrieval Systems & Vector Databases",
+        "exp1_item_deployment": "AI Deployment & Containerization",
+        "exp1_item_ml": "Classical Machine Learning",    
         "exp1_subtitle_projects": "Practical Projects",
         "exp1_item_codeagent": "AI Code Agent - Basic structure with own interface, Sentence Transformer",
         "exp1_item_stable": "Stable Diffusion, Realistic Vision, ControlNet, SAM 2, Midas",
