@@ -120,7 +120,7 @@ const translations = {
         "exp6_item1": "First Level Support für KIAS D2",
         "exp6_item2": "Co-Trainerin KIAS D2-Schulungen",
 
-               // Fähigkeiten-Sektion
+        // Fähigkeiten-Sektion
         "skills_title": "Meine Fähigkeiten",
         "technical_skills": "Technische Fähigkeiten",
         "skill_ai_tools": "KI-Tools & Generative KI",
@@ -138,7 +138,6 @@ const translations = {
         "skill_toad": "TOAD",
         "skill_eclipse": "Eclipse",
         "skill_perl": "Perl",
-
         
         "soft_skills": "Soft Skills",
         "soft_skill_teamwork": "Teamfähigkeit",
@@ -407,7 +406,6 @@ const translations = {
         "exp6_company": "Mannesmann Mobilfunk GmbH, Düsseldorf",
         "exp6_item1": "First level support for KIAS D2",
         "exp6_item2": "Co-trainer for KIAS D2 training",
-
            
         // Skills Section
         "skills_title": "My Skills",
@@ -427,7 +425,6 @@ const translations = {
         "skill_toad": "TOAD",
         "skill_eclipse": "Eclipse",
         "skill_perl": "Perl",
-
         
         "soft_skills": "Soft Skills",
         "soft_skill_teamwork": "Teamwork",
