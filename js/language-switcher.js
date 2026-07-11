@@ -119,19 +119,18 @@ const translations = {
         "exp6_company": "Mannesmann Mobilfunk GmbH, Düsseldorf",
         "exp6_item1": "First Level Support für KIAS D2",
         "exp6_item2": "Co-Trainerin KIAS D2-Schulungen",
-        
-        // Fähigkeiten-Sektion
+
+               // Fähigkeiten-Sektion
         "skills_title": "Meine Fähigkeiten",
         "technical_skills": "Technische Fähigkeiten",
         "skill_ai_tools": "KI-Tools & Generative KI",
+        "skill_ml": "Cloud-Lösungen",
         "skill_gradio": "Gradio (UI-Erstellung für ML-Modelle)",
         "skill_vector": "Vektordatenbank (Vektor-Embeddings, Ähnlichkeitssuche)",
         "skill_python": "Python",
-        "skill_python_desc": "",
-        "skill_ml": "ML-Frameworks",
         "skill_sql": "SQL",
         "skill_html": "HTML",
-        "skill_css": "CSS",       
+        "skill_css": "CSS",
         "skill_os": "Linux/Windows/iOS/Android",
         "skill_oracle": "Oracle",
         "skill_blockchain": "Blockchain",
@@ -139,6 +138,7 @@ const translations = {
         "skill_toad": "TOAD",
         "skill_eclipse": "Eclipse",
         "skill_perl": "Perl",
+
         
         "soft_skills": "Soft Skills",
         "soft_skill_teamwork": "Teamfähigkeit",
@@ -407,19 +407,19 @@ const translations = {
         "exp6_company": "Mannesmann Mobilfunk GmbH, Düsseldorf",
         "exp6_item1": "First level support for KIAS D2",
         "exp6_item2": "Co-trainer for KIAS D2 training",
-        
-        // Fähigkeiten-Sektion
+
+           
+        // Skills Section
         "skills_title": "My Skills",
         "technical_skills": "Technical Skills",
         "skill_ai_tools": "AI Tools & Generative AI",
+        "skill_ml": "Cloud Solutions",
         "skill_gradio": "Gradio (UI Creation for ML Models)",
         "skill_vector": "Vector Database (Vector Embeddings, Similarity Search)",
         "skill_python": "Python",
-        "skill_python_desc": "",
-        "skill_ml": "ML Frameworks",
         "skill_sql": "SQL",
-        "skill_html": "HTML",        
-        "skill_css": "CSS", 
+        "skill_html": "HTML",
+        "skill_css": "CSS",
         "skill_os": "Linux/Windows/iOS/Android",
         "skill_oracle": "Oracle",
         "skill_blockchain": "Blockchain",
@@ -427,6 +427,7 @@ const translations = {
         "skill_toad": "TOAD",
         "skill_eclipse": "Eclipse",
         "skill_perl": "Perl",
+
         
         "soft_skills": "Soft Skills",
         "soft_skill_teamwork": "Teamwork",
