@@ -1,0 +1,79 @@
+# ============================================
+# robots.txt für Hugging Face Space
+# Zweck: KI-Training blockieren, Sichtbarkeit erhalten
+# ============================================
+
+# ---------- ALLE normalen Suchmaschinen erlauben ----------
+User-agent: *
+Allow: /
+
+# ---------- INTERNATIONALE KI-CRAWLER blockieren ----------
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: PerplexityBot
+Disallow: /
+
+User-agent: Omgilibot
+Disallow: /
+
+User-agent: FacebookBot
+Disallow: /
+
+User-agent: Meta-ExternalAgent
+Disallow: /
+
+# ---------- CHINESISCHE KI-CRAWLER blockieren ----------
+User-agent: Bytespider          # ByteDance (TikTok/Doubao)
+Disallow: /
+
+User-agent: DeepSeekBot         # DeepSeek
+Disallow: /
+
+User-agent: Baidubot            # Baidu (Suchmaschine + KI)
+Disallow: /
+
+User-agent: BaiduSpider
+Disallow: /
+
+User-agent: ChatGLM-Spider      # Zhipu AI (ChatGLM)
+Disallow: /
+
+User-agent: Qwenbot             # Alibaba (Tongyi Qianwen)
+Disallow: /
+
+User-agent: QwenBot
+Disallow: /
+
+User-agent: BaiduYunGuanjia
+Disallow: /
+
+User-agent: SogouSpider         # Sogou (Suchmaschine)
+Disallow: /
+
+User-agent: 360Spider           # Qihoo 360 (Suchmaschine)
+Disallow: /
+
+User-agent: yandexbot           # Russland (oft als Proxy genutzt)
+Disallow: /
+
+# ---------- ALLE ANDEREN unbekannten Bots blockieren (optional) ----------
+# User-agent: *
+# Disallow: /
+# Allow: /
+# (Achtung: Das würde auch normale Suchmaschinen blockieren!)
