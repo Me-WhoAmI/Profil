@@ -425,7 +425,7 @@ const translations = {
         "skill_ai_tools": "AI Tools & Generative AI",
         "skill_ml": "Cloud Solutions",
         "skill_gradio": "Gradio (UI Creation for ML Models)",
-        "skill_vector": "Vector Database (Vector Embeddings, Similarity Search)",
+        "skill_vector": "Vector Databases (Vector Embeddings, Similarity Search)",
         "skill_python": "Python",
         "skill_sql": "SQL",
         "skill_html": "HTML",
