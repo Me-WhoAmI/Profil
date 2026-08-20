@@ -715,6 +715,31 @@ section {
 
 .timeline-content ul li { margin-bottom: 0.5rem; }
 
+/* ============================================ */
+/* NEUER BLOCK – erzwinge links (NUR DAS!) */
+/* ============================================ */
+.timeline-item:first-child {
+    left: 0 !important;
+}
+
+.timeline-item:first-child .timeline-date {
+    right: -180px !important;
+    text-align: right !important;
+}
+
+.timeline-item:first-child::after {
+    right: -10px !important;
+    left: auto !important;
+}
+
+/* ============================================ */
+/* ERZWINGE, DASS DER ZEITSTRAHL ALLE BLÖCKE UMFASST */
+/* ============================================ */
+.timeline::after {
+    height: 100% !important;
+    bottom: 0 !important;
+}
+
 
 
 
