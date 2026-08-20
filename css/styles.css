@@ -680,7 +680,8 @@ section {
 .timeline-date {
     position: absolute;
     top: 22px;
-    width: 150px;
+    width: auto; /* 150px */
+    white-space: nowrap;
     text-align: right;
     font-weight: bold;
     color: var(--primary-color);
