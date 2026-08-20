@@ -54,6 +54,12 @@ const translations = {
         "interest_tech": "Neue Technologien",
         
         // Erfahrung-Sektion
+        "exp2_date_new": "seit 08/2026 - heute",
+        "exp2_title_new": "Globale KI-Präsenz",
+        "exp2_company_new": "Selbständig",
+        "exp2_item1_new": "Flüssige englische Kommunikation über KI-Ökosysteme – Systemdesign, Agenten, RAG, MLOps, Security, Governance & Abwägung",
+        "exp2_item2_new": "Englische Fachgespräche zu AI/ML-Theorie, Modellarchitekturen (Transformer), Training/Inferenz & Hardware/Infrastruktur",
+        "exp2_item3_new": "Aktives Lesen & Verstehen englischsprachiger KI-Fachliteratur und Dokumentation",   
         "experience_title": "Berufliche Erfahrung",
         "exp1_date": "seit 09/2024 - heute",
         "exp1_title": "Berufliche Neuorientierung",
@@ -341,6 +347,12 @@ const translations = {
         "interest_tech": "New Technologies",
         
         // Erfahrung-Sektion
+        "exp2_date_new": "since 08/2026 - present",
+        "exp2_title_new": "Global AI Presence",
+        "exp2_company_new": "Self-employed",
+        "exp2_item1_new": "Fluent English communication about AI ecosystems – system design, agents, RAG, MLOps, security, governance & trade-offs",
+        "exp2_item2_new": "English technical discussions on AI/ML theory, model architectures (transformers), training/inference & hardware/infrastructure",
+        "exp2_item3_new": "Active reading & comprehension of English-language AI literature and documentation",  
         "experience_title": "Professional Experience",
         "exp1_date": "since 09/2024 - present",
         "exp1_title": "Professional Reorientation",
