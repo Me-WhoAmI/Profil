@@ -1281,8 +1281,7 @@
     left: 0 !important;              /* ← Datum linksbündig mit der Textbox */
     width: auto !important;
     text-align: left !important;
-    margin-bottom: 8px !important;
-    font-size: 0.75rem !important;
+    margin-bottom: 8px !important;    
 }
 
        /* === SPEZIELLE ANPASSUNGEN === */
